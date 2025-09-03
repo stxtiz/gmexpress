@@ -1,0 +1,23 @@
+# Archivos de base de datos
+db.sqlite3
+
+# Archivos de configuración de entorno
+*.env
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración de Django
+*.log
+
+# Archivos de migraciones (opcional, si no quieres compartirlas)
+# */migrations/
+
+# Archivos de configuración de VSCode (opcional)
+.vscode/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
