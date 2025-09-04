@@ -10,7 +10,6 @@ urlpatterns = [
     path('', vista.inicio, name='inicio'),
     
         
-    path('catalogo/', catalogo_vista.catalogo, name='catalogo'),
+    path('catalogo/', catalogo_vista.catalogoServicios, name='catalogo'),
     path('nosotros/', vista.info_empresa, name='info_empresa'),
 ]
-|
