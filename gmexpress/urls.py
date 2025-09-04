@@ -13,4 +13,3 @@ urlpatterns = [
     path('catalogo/', catalogo_vista.catalogo, name='catalogo'),
     path('nosotros/', vista.info_empresa, name='info_empresa'),
 ]
-|
