@@ -8,3 +8,8 @@ catalogo1 = {
     'Coffee break y eventos':['cafeb.jpg'],
     'Repostería y snack con tickets':['snack.jpg'],
 }
+
+catalogo2 = {
+    'Almuerzo tradicional':['almuerzo.jpg'],
+    'Vegetariano':['vegetariano.jpg'],
+}
