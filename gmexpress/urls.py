@@ -11,7 +11,7 @@ urlpatterns = [
     
     #path catalogos    
     path('Catalogo/', catalogo_vista.catalogoServicios, name='catalogo'),
-    path('Transportado/', catalogo_vista.catalogoTransporte, name='servicio_transportado'),
+    path('Catalogo/Transportado/', catalogo_vista.catalogoTransporte, name='servicio_transportado'),
     path('Tradicional/', catalogo_vista.catalogoTradicional, name='servicio_tradicional'),
     path('Coffe/', catalogo_vista.catalogoCoffe, name='servicio_coffe'),
     path('Reposteria/', catalogo_vista.catalogoReposteria, name='servicio_reposteria'),
