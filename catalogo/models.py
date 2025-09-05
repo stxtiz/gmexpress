@@ -190,7 +190,7 @@ menu_concesion = [
      'Descripcion':'Responsable de preparar y manipular los alimentos de manera segura y eficiente.',
      'Componentes principales':'Utensilios de cocina, ollas, sartenes, cuchillos, tablas de picar, uniforme de cocina, guantes'},
 
-    {'Nombre':'Personal de equipación',
+    {'Nombre':'Personal de montaje',
      'Descripcion':'Encargado de montar y alistar todo el lugar: mesas, sillas, decoración y logística básica.',
      'Componentes principales':'Mesas, sillas, manteles, decoración, vajilla, cubiertos, cristalería'},
 
