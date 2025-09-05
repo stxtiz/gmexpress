@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 
 from django.shortcuts import render
+from catalogo import models as datos
 
 def info_empresa(request): 
     datos = {
@@ -21,4 +22,7 @@ def info_empresa(request):
     return render(request, 'templateEmpresa/info.html', datos)
 
 def inicio(request):
-    return render(request, 'templateEmpresa/inicio.html')
+    data = {
+        'catalogo_servicios': datos.catalogo1,
+    }
+    return render(request, 'templateEmpresa/inicio.html', data)

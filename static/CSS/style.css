@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: auto;
   margin: 40px auto;
   background: #fff;
   border-radius: 16px;
@@ -48,7 +48,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ---- Navbar (sin Bootstrap) ---- */
 .navbar {
   display: flex;
   width: 100%;
@@ -67,7 +66,6 @@ a:hover {
   align-items: center;
 }
 
-/* Forzar los ítems del menú en horizontal */
 .navbar-nav {
   display: flex;
   flex-direction: row;
@@ -78,7 +76,6 @@ a:hover {
   padding: 8px 16px;
 }
 
-/* Anular estilos globales de ul/li dentro del navbar */
 .navbar .navbar-nav li {
   background: transparent;
   margin: 0;
