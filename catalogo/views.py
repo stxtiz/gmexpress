@@ -36,3 +36,38 @@ def catalogoConcesion(request):
         'catalogo_concesion': datos.catalogo_concesion,
     }
     return render(request, 'templateCatalogo/concesion.html', data)
+
+def menuTransportado(request):
+    data = {
+        'menu_items': datos.menu_transportado,
+        'titulo': 'Menú Transportado'
+    }
+    return render(request, 'templateCatalogo/menu_detail.html', data)
+
+def menuCoffe(request):
+    data = {
+        'menu_items': datos.menu_coffe,
+        'titulo': 'Menú Coffee Break'
+    }
+    return render(request, 'templateCatalogo/menu_detail.html', data)
+
+def menuReposteria(request):
+    data = {
+        'menu_items': datos.menu_reposteria,
+        'titulo': 'Menú Repostería'
+    }
+    return render(request, 'templateCatalogo/menu_detail.html', data)
+
+def menuEspecial(request):
+    data = {
+        'menu_items': datos.menu_especial,
+        'titulo': 'Menú Especial'
+    }
+    return render(request, 'templateCatalogo/menu_detail.html', data)
+
+def menuConcesion(request):
+    data = {
+        'menu_items': datos.menu_concesion,
+        'titulo': 'Personal de Concesión'
+    }
+    return render(request, 'templateCatalogo/menu_detail.html', data)

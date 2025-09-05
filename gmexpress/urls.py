@@ -17,6 +17,13 @@ urlpatterns = [
     path('Reposteria/', catalogo_vista.catalogoReposteria, name='servicio_reposteria'),
     path('Concesion/', catalogo_vista.catalogoConcesion, name='servicio_concesion'),
     
+    #path menus detalle
+    path('menu/transportado/', catalogo_vista.menuTransportado, name='menu_transportado'),
+    path('menu/coffe/', catalogo_vista.menuCoffe, name='menu_coffe'),
+    path('menu/reposteria/', catalogo_vista.menuReposteria, name='menu_reposteria'),
+    path('menu/especial/', catalogo_vista.menuEspecial, name='menu_especial'),
+    path('menu/concesion/', catalogo_vista.menuConcesion, name='menu_concesion'),
+    
     
     #path nosotros
     path('nosotros/', vista.info_empresa, name='info_empresa'),

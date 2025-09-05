@@ -10,43 +10,43 @@ catalogo1 = {
 }
 
 catalogo_transportado = {
-    'Almuerzo tradicional': ['almuerzo.jpg', None],
-    'Vegetariano': ['vegetariano.jpg', None],
-    'Vegano': ['vegano.jpg', None],
-    'Hipocalórico': ['hipocalorico.jpg', None],
-    'Menú especial del día' : ['especial.jpg', None],
+    'Almuerzo tradicional': ['almuerzo.jpg', 'menu_transportado'],
+    'Vegetariano': ['vegetariano.jpg', 'menu_transportado'],
+    'Vegano': ['vegano.jpg', 'menu_transportado'],
+    'Hipocalórico': ['hipocalorico.jpg', 'menu_transportado'],
+    'Menú especial del día' : ['especial.jpg', 'menu_transportado'],
 }
 
 catalogo_coffee = {
-    'Sándwiches': ['sandwiches.jpg', None],
-    'Jugos naturales': ['jugos.jpg', None],
-    'Repostería': ['reposteria.jpg', None],
-    'Colaciones dulces': ['colacion.jpg', None],
-    'Colaciones saladas': ['colacion2.jpg', None],
+    'Sándwiches': ['sandwiches.jpg', 'menu_coffe'],
+    'Jugos naturales': ['jugos.jpg', 'menu_coffe'],
+    'Repostería': ['reposteria.jpg', 'menu_coffe'],
+    'Colaciones dulces': ['colacion.jpg', 'menu_coffe'],
+    'Colaciones saladas': ['colacion2.jpg', 'menu_coffe'],
 }
 
 catalogo_tradicional = {
-    'Menú Ejecutivo': ['ejecutivo.jpg', None],
-    'Menú Saludable': ['saludable.jpg', None],
-    'Desayuno Completo': ['desayuno.jpg', None],
-    'Cena Ligera': ['cena.jpg', None],
-    'Menú Regional': ['regional.jpg', None],
+    'Menú Ejecutivo': ['ejecutivo.jpg', 'menu_especial'],
+    'Menú Saludable': ['saludable.jpg', 'menu_especial'],
+    'Desayuno Completo': ['desayuno.jpg', 'menu_especial'],
+    'Cena Ligera': ['cena.jpg', 'menu_especial'],
+    'Menú Regional': ['regional.jpg', 'menu_especial'],
 }
 
 catalogo_reposteria = {
-    'Queques': ['queques.jpg', None],
-    'Tortas': ['tortas.jpg', None],
-    'Galletas': ['galletas.jpg', None],
-    'Brownies': ['brownies.jpg', None],
-    'Muffins': ['muffins.jpg', None],
+    'Queques': ['queques.jpg', 'menu_reposteria'],
+    'Tortas': ['tortas.jpg', 'menu_reposteria'],
+    'Galletas': ['galletas.jpg', 'menu_reposteria'],
+    'Brownies': ['brownies.jpg', 'menu_reposteria'],
+    'Muffins': ['muffins.jpg', 'menu_reposteria'],
 }
 
 catalogo_concesion = {
-    'personal de aseo ': ['aseo.jpg', None],
-    'personal de alimentación': ['alimentacion.jpg', None],
-    'personal de montaje': ['montaje.jpg', None],
-    'personal administrativo': ['administrativo.jpg', None],
-    'personal de mantención': ['mantencion.jpg', None]
+    'personal de aseo ': ['aseo.jpg', 'menu_concesion'],
+    'personal de alimentación': ['alimentacion.jpg', 'menu_concesion'],
+    'personal de montaje': ['montaje.jpg', 'menu_concesion'],
+    'personal administrativo': ['administrativo.jpg', 'menu_concesion'],
+    'personal de mantención': ['mantencion.jpg', 'menu_concesion']
 
 }
 

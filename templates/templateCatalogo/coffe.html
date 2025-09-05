@@ -28,7 +28,11 @@
                     />
                     <div class="card-body">
                         <h5 class="card-title">{{nombre}}</h5>
-                        <button class="btn btn-success">Ver más</button>
+                        {% if articulo|length > 1 and articulo.1 %}
+                        <a href="{% url articulo.1 %}" class="btn btn-success">Ver más</a>
+                        {% else %}
+                        <a class="btn btn-secondary disabled" aria-disabled="true">Sin detalle</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

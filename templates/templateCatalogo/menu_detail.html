@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GM Express | {{titulo}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'CSS/catalogo1.css' %}"
+  </head>
+  <body>
+    <div class="container py-4">
+      <section>
+        <h1 class="mb-5">{{titulo}}</h1>
+        <div class="row g-4">
+          {% for item in menu_items %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{item.Nombre}}</h5>
+                <p class="card-text">{{item.Descripcion}}</p>
+                {% if item.Ingredientes %}
+                <p class="card-text"><small class="text-muted"><strong>Ingredientes:</strong> {{item.Ingredientes}}</small></p>
+                {% endif %}
+                {% for key, value in item.items %}
+                  {% if key == "Componentes principales" %}
+                    <p class="card-text"><small class="text-muted"><strong>Componentes principales:</strong> {{value}}</small></p>
+                  {% elif key == "Tiempo de entrega" %}
+                    <p class="card-text"><small class="text-muted"><strong>Tiempo de entrega:</strong> {{value}}</small></p>
+                  {% elif key == "Condiciones de consumo" %}
+                    <p class="card-text"><small class="text-muted"><strong>Condiciones de consumo:</strong> {{value}}</small></p>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
