@@ -4,6 +4,11 @@ from catalogo import models as datos
 def catalogoServicios(request):
     data = {
         'catalogo_servicios': datos.catalogo1,
-        'catalogo_transporte': datos.catalogo2,
     }
     return render(request, 'templateCatalogo/catalogo1.html', data)
+
+def catalogoTransporte(request):
+    data = {
+        'catalogo_transporte': datos.catalogo_transportado,
+    }
+    return render(request, 'templateCatalogo/transporte.html', data)

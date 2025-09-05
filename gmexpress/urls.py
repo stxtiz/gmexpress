@@ -9,7 +9,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', vista.inicio, name='inicio'),
     
-        
-    path('catalogo/', catalogo_vista.catalogoServicios, name='catalogo'),
+    #path catalogos    
+    path('Catalogo/', catalogo_vista.catalogoServicios, name='catalogo'),
+    path('Transportado/', catalogo_vista.catalogoTransporte, name='servicio_transportado'),
+    path('Tradicional/', catalogo_vista.catalogoServicios, name='servicio_tradicional'),
+    
+    
     path('nosotros/', vista.info_empresa, name='info_empresa'),
 ]
