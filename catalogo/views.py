@@ -18,3 +18,9 @@ def catalogoCoffe(request):
         'catalogo_coffe': datos.catalogo_coffee,
     }
     return render(request, 'templateCatalogo/coffe.html', data)
+
+def catalogoReposteria(request):
+    data = {
+        'catalogo_reposteria': datos.catalogo_reposteria,
+    }
+    return render(request, 'templateCatalogo/reposteria.html', data)

@@ -5,8 +5,8 @@ catalogo1 = {
     'Alimentación transportada': ['transporte.jpg', 'servicio_transportado'],
     'Alimentación tradicional (presencial)': ['presencial.jpg', 'servicio_tradicional'],
     'Concesión de Casinos': ['casino.jpg', None],
-    'Coffee break y eventos': ['cafeb.jpg', None],
-    'Repostería y snack con tickets': ['snack.jpg', 'servicio_coffe'],
+    'Coffee break y eventos': ['cafeb.jpg', 'servicio_coffe'],
+    'Repostería y snack con tickets': ['snack.jpg', 'servicio_reposteria'],
 }
 
 catalogo_transportado = {
@@ -23,6 +23,18 @@ catalogo_coffee = {
     'Repostería': ['reposteria.jpg', None],
     'Colaciones dulces': ['colacion.jpg', None],
     'Colaciones saladas': ['colacion2.jpg', None],
+}
+
+catalogo_tradicional = {
+    
+}
+
+catalogo_reposteria = {
+    'Queques': ['queques.jpg', None],
+    'Tortas': ['tortas.jpg', None],
+    'Galletas': ['galletas.jpg', None],
+    'Brownies': ['brownies.jpg', None],
+    'Muffins': ['muffins.jpg', None],
 }
 
 
