@@ -42,10 +42,14 @@ catalogo_reposteria = {
 }
 
 catalogo_concesion = {
-    'personal de aseo ': ['aseo.jpg', None],
+    'personal de aseo ': ['casino1.jpg', None],
     'personal de alimentación': ['casino2.jpg', None],
     'personal de equipación': ['casino3.jpg', None],
     'personal administrativo': ['casino4.jpg', None],
     'personal de mantención': ['casino5.jpg', None]
 
 }
+
+
+#menus
+
