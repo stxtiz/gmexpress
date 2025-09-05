@@ -15,6 +15,7 @@ urlpatterns = [
     path('Tradicional/', catalogo_vista.catalogoTradicional, name='servicio_tradicional'),
     path('Coffe/', catalogo_vista.catalogoCoffe, name='servicio_coffe'),
     path('Reposteria/', catalogo_vista.catalogoReposteria, name='servicio_reposteria'),
+    path('Concesion/', catalogo_vista.catalogoConcesion, name='servicio_concesion'),
     
     
     #path nosotros

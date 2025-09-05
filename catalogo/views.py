@@ -30,3 +30,9 @@ def catalogoTradicional(request):
         'catalogo_tradicional': datos.catalogo_tradicional,
     }
     return render(request, 'templateCatalogo/tradicional.html', data)
+
+def catalogoConcesion(request):
+    data = {
+        'catalogo_concesion': datos.catalogo_concesion,
+    }
+    return render(request, 'templateCatalogo/concesion.html', data)
