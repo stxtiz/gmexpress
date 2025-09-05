@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pene pal que lee 
-        
-    </title>
-</head>
-<body>
-    <h1>Hola mundo</h1>
-    
-</body>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Información GM Express</title>
+    <!-- Enlace al archivo de estilos -->
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>GM Express</h1>
+      <h2>Historia</h2>
+      <p>{{ historia }}</p>
+
+      <h2>Misión</h2>
+      <p>{{ mision }}</p>
+
+      <h2>Visión</h2>
+      <p>{{ vision }}</p>
+
+      <h2>Valores</h2>
+      <ul>
+        {% for valor in valores %}
+        <li>{{ valor }}</li>
+        {% endfor %}
+      </ul>
+
+      <h2>Contactos</h2>
+      <ul>
+        <li>teléfono: {{ contactos.teléfono }}</li>
+        <li>Email: {{ contactos.email }}</li>
+      </ul>
+
+      <h2>Redes Sociales</h2>
+      <ul>
+        {% for red in redes %}
+        <li>
+          <a href="{{ red.url }}" target="_blank">{{ red.nombre }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
 </html>

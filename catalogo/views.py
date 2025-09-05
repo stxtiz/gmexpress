@@ -12,3 +12,9 @@ def catalogoTransporte(request):
         'catalogo_transporte': datos.catalogo_transportado,
     }
     return render(request, 'templateCatalogo/transporte.html', data)
+
+def catalogoCoffe(request):
+    data = {
+        'catalogo_coffe': datos.catalogo_coffee,
+    }
+    return render(request, 'templateCatalogo/coffe.html', data)
