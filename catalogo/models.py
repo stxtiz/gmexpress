@@ -149,7 +149,7 @@ menu_reposteria = [
      'Condiciones de consumo':'Consumir en un máximo de 2 días. Guardar en envase cerrado a temperatura ambiente.'}
 ]
 
-menu_especial = [
+menu_tradicional = [
     {'Nombre':'Lomo saltado con arroz',
      'Descripcion':'Plato ejecutivo inspirado en la cocina peruana, mezcla de carne y verduras salteadas con arroz.',
      'Ingredientes':'Lomo de res, cebolla morada, tomate, pimentón, salsa de soya, arroz blanco',
