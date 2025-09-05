@@ -24,3 +24,9 @@ def catalogoReposteria(request):
         'catalogo_reposteria': datos.catalogo_reposteria,
     }
     return render(request, 'templateCatalogo/reposteria.html', data)
+
+def catalogoTradicional(request):
+    data = {
+        'catalogo_tradicional': datos.catalogo_tradicional,
+    }
+    return render(request, 'templateCatalogo/tradicional.html', data)

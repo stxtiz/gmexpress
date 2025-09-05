@@ -26,7 +26,11 @@ catalogo_coffee = {
 }
 
 catalogo_tradicional = {
-    
+    'Menú Ejecutivo': ['ejecutivo.jpg', None],
+    'Menú Saludable': ['saludable.jpg', None],
+    'Desayuno Completo': ['desayuno.jpg', None],
+    'Cena Ligera': ['cena.jpg', None],
+    'Menú Regional': ['regional.jpg', None],
 }
 
 catalogo_reposteria = {
@@ -36,5 +40,4 @@ catalogo_reposteria = {
     'Brownies': ['brownies.jpg', None],
     'Muffins': ['muffins.jpg', None],
 }
-
 
