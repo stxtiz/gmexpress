@@ -4,7 +4,7 @@ from django.db import models
 catalogo1 = {
     'Alimentación transportada': ['transporte.jpg', 'servicio_transportado'],
     'Alimentación tradicional (presencial)': ['presencial.jpg', 'servicio_tradicional'],
-    'Concesión de Casinos': ['casino.jpg', None],
+    'Concesión de Casinos': ['casino.jpg', 'servicio_concesion'],
     'Coffee break y eventos': ['cafeb.jpg', 'servicio_coffe'],
     'Repostería y snack con tickets': ['snack.jpg', 'servicio_reposteria'],
 }
@@ -42,7 +42,7 @@ catalogo_reposteria = {
 }
 
 catalogo_concesion = {
-    'personal de aseo ': ['casino1.jpg', None],
+    'personal de aseo ': ['aseo.jpg', None],
     'personal de alimentación': ['casino2.jpg', None],
     'personal de equipación': ['casino3.jpg', None],
     'personal administrativo': ['casino4.jpg', None],
