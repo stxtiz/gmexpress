@@ -39,8 +39,10 @@
               />
               <div class="card-body">
                 <h5 class="card-title">{{dato.nombre}}</h5>
-                {% if dato.servicio %}
-                <a href="{% url dato.servicio %}" class="btn btn-success"
+                {% if dato.servicio_tipo %}
+                <a
+                  href="{% url 'catalogo_productos' dato.servicio_tipo %}"
+                  class="btn btn-success"
                   >Ver más</a
                 >
                 {% else %}
