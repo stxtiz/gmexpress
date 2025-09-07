@@ -1,39 +1,57 @@
 /* Estilo específico para info.html */
 body {
-  background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+  background-image: url("../images/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: "Segoe UI", Arial, sans-serif;
-  color: #22223b;
+  color: #727272;
   margin: 0;
   padding: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: -1;
+}
+
 .hero-section {
-  background: linear-gradient(135deg, #3a5a40 0%, #588157 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
   padding: 80px 0;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-section h1 {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .section-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(34, 34, 59, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   padding: 30px;
   margin-bottom: 30px;
+  backdrop-filter: blur(10px);
 }
 
 .section-title {
-  color: #3a5a40;
+  color: #2c3e50;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
-  border-bottom: 3px solid #a3b18a;
+  border-bottom: 3px solid #e74c3c;
   padding-bottom: 10px;
 }
 
@@ -44,21 +62,25 @@ body {
 }
 
 .value-item {
-  background: #f0efeb;
+  background: #ecf0f1;
   padding: 15px 20px;
   border-radius: 8px;
   text-align: center;
   font-weight: 500;
-  color: #3a5a40;
+  color: #2c3e50;
+  border-left: 4px solid #e74c3c;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-item {
-  background: #f0efeb;
+  background: #ecf0f1;
   margin-bottom: 10px;
   padding: 15px 20px;
   border-radius: 8px;
   display: flex;
   align-items: center;
+  border-left: 4px solid #3498db;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-icon {
@@ -69,7 +91,7 @@ body {
 
 .social-links a {
   display: inline-block;
-  background: #3a5a40;
+  background: #2c3e50;
   color: white;
   padding: 10px 20px;
   margin: 5px;
@@ -77,16 +99,18 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .social-links a:hover {
-  background: #588157;
+  background: #e74c3c;
   transform: translateY(-2px);
   color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .navbar {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 #logo {
