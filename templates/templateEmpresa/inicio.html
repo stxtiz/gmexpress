@@ -29,19 +29,19 @@
       <section>
         <h1 class="mb-5">Catalogo de Servicios</h1>
         <div class="row row-cols-3 justify-content-center g-4">
-          {% for nombre,articulo in catalogo_servicios.items %}
+          {% for id, dato in catalogo_servicios.items %}
           <div class="col">
             <div class="card" style="width: 18rem">
               <img
-                src="{% static 'images/' %}{{articulo.0}}"
+                src="{% static 'images/' %}{{dato.imagen}}"
                 class="card-img-top"
-                alt="{{nombre}}"
+                alt="{{dato.nombre}}"
                 width="150"
               />
               <div class="card-body">
-                <h5 class="card-title">{{nombre}}</h5>
-                {% if articulo|length > 1 and articulo.1 %}
-                <a href="{% url articulo.1 %}" class="btn btn-success"
+                <h5 class="card-title">{{dato.nombre}}</h5>
+                {% if dato.servicio %}
+                <a href="{% url dato.servicio %}" class="btn btn-success"
                   >Ver más</a
                 >
                 {% else %}

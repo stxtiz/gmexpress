@@ -5,34 +5,33 @@ def catalogoServicios(request):
     data = {
         'catalogo_servicios': datos.catalogo1,
     }
-    return render(request, 'templateCatalogo/catalogo1.html', data)
+    return render(request, 'templateEmpresa/inicio.html', data)
 
-def catalogoTransporte(request):
-    data = {
-        'catalogo_transporte': datos.catalogo_transportado,
+def catalogoProductos(request, servicio_tipo):
+    # Mapeo de tipos de servicio a sus respectivos catálogos
+    servicios_map = {
+        'transportado': datos.catalogo_transportado,
+        'coffee': datos.catalogo_coffee,
+        'tradicional': datos.catalogo_tradicional,
+        'reposteria': datos.catalogo_reposteria,
+        'concesion': datos.catalogo_concesion,
     }
-    return render(request, 'templateCatalogo/transporte.html', data)
-
-def catalogoCoffe(request):
-    data = {
-        'catalogo_coffe': datos.catalogo_coffee,
+    
+    # Nombres para mostrar en el template
+    nombres_servicios = {
+        'transportado': 'Alimentación Transportada',
+        'coffee': 'Coffee Break y Eventos',
+        'tradicional': 'Alimentación Tradicional',
+        'reposteria': 'Repostería y Snack',
+        'concesion': 'Concesión de Casinos',
     }
-    return render(request, 'templateCatalogo/coffe.html', data)
-
-def catalogoReposteria(request):
-    data = {
-        'catalogo_reposteria': datos.catalogo_reposteria,
-    }
-    return render(request, 'templateCatalogo/reposteria.html', data)
-
-def catalogoTradicional(request):
-    data = {
-        'catalogo_tradicional': datos.catalogo_tradicional,
-    }
-    return render(request, 'templateCatalogo/tradicional.html', data)
-
-def catalogoConcesion(request):
-    data = {
-        'catalogo_concesion': datos.catalogo_concesion,
-    }
-    return render(request, 'templateCatalogo/concesion.html', data)
+    
+    if servicio_tipo in servicios_map:
+        data = {
+            'catalogo_productos': servicios_map[servicio_tipo],
+            'titulo_servicio': nombres_servicios[servicio_tipo],
+        }
+        return render(request, 'templateCatalogo/catalogo2.html', data)
+    else:
+        # Si el servicio no existe, redirigir al catálogo principal
+        return catalogoServicios(request)
