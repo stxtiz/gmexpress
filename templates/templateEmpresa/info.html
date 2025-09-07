@@ -1,45 +1,115 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Información GM Express</title>
-    <!-- Enlace al archivo de estilos -->
-    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
-</head>
-<body>
-    <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | GM Express</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'CSS/info.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img
+              src="{% static 'images/gm express.png' %}"
+              alt="GM Express"
+              height="40"
+              id="logo"
+            />
+          </a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'info_empresa' %}"
+                >Nosotros</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <div class="container">
         <h1>GM Express</h1>
-        <h2>Historia</h2>
-        <p>{{ historia }}</p>
+        <p class="lead">Empresa chilena de Servicios de Alimentación</p>
+      </div>
+    </section>
 
-        <h2>Misión</h2>
-        <p>{{ mision }}</p>
+    <div class="container py-5">
+      <div class="section-card">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <p class="lead">{{ historia }}</p>
+      </div>
 
-        <h2>Visión</h2>
-        <p>{{ vision }}</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="section-card">
+            <h2 class="section-title">Misión</h2>
+            <p>{{ mision }}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="section-card">
+            <h2 class="section-title">Visión</h2>
+            <p>{{ vision }}</p>
+          </div>
+        </div>
+      </div>
 
-        <h2>Valores</h2>
-        <ul>
-            {% for valor in valores %}
-                <li>{{ valor }}</li>
-            {% endfor %}
-        </ul>
+      <div class="section-card">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <div class="values-list">
+          {% for valor in valores %}
+          <div class="value-item">{{ valor }}</div>
+          {% endfor %}
+        </div>
+      </div>
 
-        <h2>Contactos</h2>
-        <ul>
-            <li>teléfono: {{ contactos.teléfono }}</li>
-            <li>Email: {{ contactos.email }}</li>
-        </ul>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="section-card">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-item">
+              <span>📞</span>
+              <div>
+                <strong>Teléfono:</strong><br />
+                {{ contactos.teléfono }}
+              </div>
+            </div>
+            <div class="contact-item">
+              <span>✉️</span>
+              <div>
+                <strong>Email:</strong><br />
+                {{ contactos.email }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="section-card">
+            <h2 class="section-title">Redes Sociales</h2>
+            <div class="social-links">
+              {% for red in redes %}
+              <a href="{{ red.url }}" target="_blank">{{ red.nombre }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <h2>Redes Sociales</h2>
-        <ul>
-            {% for red in redes %}
-                <li>
-                    <a href="{{ red.url }}" target="_blank">{{ red.nombre }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+      <div class="text-center mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-success btn-lg"
+          >Volver al Inicio</a
+        >
+      </div>
     </div>
-</body>
+  </body>
 </html>

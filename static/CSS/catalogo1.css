@@ -7,6 +7,17 @@ img {
   aspect-ratio: 1/1;
   object-fit: cover;
 }
+
+#logo {
+  aspect-ratio: unset;
+  object-fit: unset;
+  width: auto;
+}
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 body {
   background-color: aliceblue;
   font-family: "Segoe UI", Arial, sans-serif;
