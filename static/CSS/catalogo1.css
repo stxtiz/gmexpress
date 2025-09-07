@@ -11,11 +11,16 @@ img {
 #logo {
   aspect-ratio: unset;
   object-fit: unset;
-  width: auto;
+  width: 15%;
+  height: 15%;
 }
 
 .navbar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bg-custom {
+  background-color: #5d729a !important;
 }
 
 body {

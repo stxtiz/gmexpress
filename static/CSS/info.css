@@ -114,7 +114,12 @@ body::before {
 }
 
 #logo {
-  aspect-ratio: unset !important;
-  object-fit: unset !important;
-  width: auto !important;
+  aspect-ratio: unset;
+  object-fit: unset;
+  width: 15%;
+  height: 15%;
+}
+
+.bg-custom {
+  background-color: #5d729a !important;
 }
