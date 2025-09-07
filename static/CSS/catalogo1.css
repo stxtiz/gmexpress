@@ -2,3 +2,8 @@ main {
   min-height: 100vh;
   position: relative;
 }
+img {
+  width: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
