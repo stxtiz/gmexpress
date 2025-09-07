@@ -2,11 +2,11 @@ from django.db import models
 
 # Create your models here.
 catalogo1 = {
-    1: {'nombre': 'Alimentación transportada', 'imagen': 'transporte.jpg', 'servicio': 'servicio_transportado'},
-    2: {'nombre': 'Alimentación tradicional (presencial)', 'imagen': 'presencial.jpg', 'servicio': 'servicio_tradicional'},
-    3: {'nombre': 'Concesión de Casinos', 'imagen': 'casino.jpg', 'servicio': 'servicio_concesion'},
-    4: {'nombre': 'Coffee break y eventos', 'imagen': 'cafeb.jpg', 'servicio': 'servicio_coffe'},
-    5: {'nombre': 'Repostería y snack con tickets', 'imagen': 'snack.jpg', 'servicio': 'servicio_reposteria'},
+    1: {'nombre': 'Alimentación transportada', 'imagen': 'transporte.jpg', 'servicio_tipo': 'transportado'},
+    2: {'nombre': 'Alimentación tradicional (presencial)', 'imagen': 'presencial.jpg', 'servicio_tipo': 'tradicional'},
+    3: {'nombre': 'Concesión de Casinos', 'imagen': 'casino.jpg', 'servicio_tipo': 'concesion'},
+    4: {'nombre': 'Coffee break y eventos', 'imagen': 'cafeb.jpg', 'servicio_tipo': 'coffee'},
+    5: {'nombre': 'Repostería y snack con tickets', 'imagen': 'snack.jpg', 'servicio_tipo': 'reposteria'},
 }
 
 catalogo_transportado = {
