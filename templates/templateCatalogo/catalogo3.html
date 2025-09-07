@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GM Express | {{producto_nombre}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'CSS/catalogo1.css' %}" />
+  </head>
+  <body>
+    <div class="container py-4">
+      <section>
+        <h1 class="mb-5">{{producto_nombre}}</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">{{menu_detalle.nombre}}</h3>
+                <p class="card-text">
+                  <strong>Descripción:</strong> {{menu_detalle.descripcion}}
+                </p>
+                {% if menu_detalle.ingredientes %}
+                <p class="card-text">
+                  <strong>Ingredientes:</strong> {{menu_detalle.ingredientes}}
+                </p>
+                {% endif %} {% if menu_detalle.componentes %}
+                <p class="card-text">
+                  <strong>Componentes:</strong> {{menu_detalle.componentes}}
+                </p>
+                {% endif %} {% if menu_detalle.tiempo_entrega %}
+                <p class="card-text">
+                  <strong>Tiempo de entrega:</strong>
+                  {{menu_detalle.tiempo_entrega}}
+                </p>
+                {% endif %} {% if menu_detalle.condiciones_consumo %}
+                <p class="card-text">
+                  <strong>Condiciones de consumo:</strong>
+                  {{menu_detalle.condiciones_consumo}}
+                </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="{% url 'catalogo' %}" class="btn btn-secondary"
+            >Volver al Catálogo</a
+          >
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

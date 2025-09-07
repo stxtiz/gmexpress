@@ -30,8 +30,39 @@ def catalogoProductos(request, servicio_tipo):
         data = {
             'catalogo_productos': servicios_map[servicio_tipo],
             'titulo_servicio': nombres_servicios[servicio_tipo],
+            'servicio_tipo': servicio_tipo,
         }
         return render(request, 'templateCatalogo/catalogo2.html', data)
     else:
         # Si el servicio no existe, redirigir al catálogo principal
         return catalogoServicios(request)
+
+def catalogoMenu(request, servicio_tipo, producto_id):
+    # Mapeo de tipos de servicio a sus respectivos menús
+    menus_map = {
+        'transportado': datos.menu_transportado,
+        'coffee': datos.menu_coffe,
+        'tradicional': datos.menu_tradicional,
+        'reposteria': datos.menu_reposteria,
+        'concesion': datos.menu_concesion,
+    }
+    
+    # Mapeo de nombres de productos
+    productos_map = {
+        'transportado': datos.catalogo_transportado,
+        'coffee': datos.catalogo_coffee,
+        'tradicional': datos.catalogo_tradicional,
+        'reposteria': datos.catalogo_reposteria,
+        'concesion': datos.catalogo_concesion,
+    }
+    
+    if servicio_tipo in menus_map and int(producto_id) in menus_map[servicio_tipo]:
+        menu_item = menus_map[servicio_tipo][int(producto_id)]
+        producto_nombre = productos_map[servicio_tipo][int(producto_id)]['nombre']
+        
+        data = {
+            'menu_detalle': menu_item,
+            'producto_nombre': producto_nombre,
+            'servicio_tipo': servicio_tipo,
+        }
+        return render(request, 'templateCatalogo/catalogo3.html', data)

@@ -15,6 +15,9 @@ urlpatterns = [
     path('Reposteria/', catalogo_vista.catalogoProductos, {'servicio_tipo': 'reposteria'}, name='servicio_reposteria'),
     path('Concesion/', catalogo_vista.catalogoProductos, {'servicio_tipo': 'concesion'}, name='servicio_concesion'),
     
+    #path menu detalles
+    path('Menu/<str:servicio_tipo>/<int:producto_id>/', catalogo_vista.catalogoMenu, name='menu_detalle'),
+    
     #path nosotros
     path('nosotros/', vista.info_empresa, name='info_empresa'),
 ]
