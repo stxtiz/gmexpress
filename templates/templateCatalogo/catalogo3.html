@@ -11,7 +11,7 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="{% static 'CSS/catalogo1.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/catalogo3.css' %}" />
   </head>
   <body>
     <div class="container py-4">
@@ -36,7 +36,8 @@
                     </p>
                     {% if menu_detalle.ingredientes %}
                     <p class="card-text">
-                      <strong>Ingredientes:</strong> {{menu_detalle.ingredientes}}
+                      <strong>Ingredientes:</strong>
+                      {{menu_detalle.ingredientes}}
                     </p>
                     {% endif %} {% if menu_detalle.componentes %}
                     <p class="card-text">
