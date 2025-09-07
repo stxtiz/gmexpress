@@ -18,32 +18,43 @@
       <section>
         <h1 class="mb-5">{{producto_nombre}}</h1>
         <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-10">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title">{{menu_detalle.nombre}}</h3>
-                <p class="card-text">
-                  <strong>Descripción:</strong> {{menu_detalle.descripcion}}
-                </p>
-                {% if menu_detalle.ingredientes %}
-                <p class="card-text">
-                  <strong>Ingredientes:</strong> {{menu_detalle.ingredientes}}
-                </p>
-                {% endif %} {% if menu_detalle.componentes %}
-                <p class="card-text">
-                  <strong>Componentes:</strong> {{menu_detalle.componentes}}
-                </p>
-                {% endif %} {% if menu_detalle.tiempo_entrega %}
-                <p class="card-text">
-                  <strong>Tiempo de entrega:</strong>
-                  {{menu_detalle.tiempo_entrega}}
-                </p>
-                {% endif %} {% if menu_detalle.condiciones_consumo %}
-                <p class="card-text">
-                  <strong>Condiciones de consumo:</strong>
-                  {{menu_detalle.condiciones_consumo}}
-                </p>
-                {% endif %}
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="{% static 'images/' %}{{producto_imagen}}"
+                      class="img-fluid rounded"
+                      alt="{{producto_nombre}}"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <h3 class="card-title">{{menu_detalle.nombre}}</h3>
+                    <p class="card-text">
+                      <strong>Descripción:</strong> {{menu_detalle.descripcion}}
+                    </p>
+                    {% if menu_detalle.ingredientes %}
+                    <p class="card-text">
+                      <strong>Ingredientes:</strong> {{menu_detalle.ingredientes}}
+                    </p>
+                    {% endif %} {% if menu_detalle.componentes %}
+                    <p class="card-text">
+                      <strong>Componentes:</strong> {{menu_detalle.componentes}}
+                    </p>
+                    {% endif %} {% if menu_detalle.tiempo_entrega %}
+                    <p class="card-text">
+                      <strong>Tiempo de entrega:</strong>
+                      {{menu_detalle.tiempo_entrega}}
+                    </p>
+                    {% endif %} {% if menu_detalle.condiciones_consumo %}
+                    <p class="card-text">
+                      <strong>Condiciones de consumo:</strong>
+                      {{menu_detalle.condiciones_consumo}}
+                    </p>
+                    {% endif %}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

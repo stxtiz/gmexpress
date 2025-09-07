@@ -58,11 +58,12 @@ def catalogoMenu(request, servicio_tipo, producto_id):
     
     if servicio_tipo in menus_map and int(producto_id) in menus_map[servicio_tipo]:
         menu_item = menus_map[servicio_tipo][int(producto_id)]
-        producto_nombre = productos_map[servicio_tipo][int(producto_id)]['nombre']
+        producto_info = productos_map[servicio_tipo][int(producto_id)]
         
         data = {
             'menu_detalle': menu_item,
-            'producto_nombre': producto_nombre,
+            'producto_nombre': producto_info['nombre'],
+            'producto_imagen': producto_info['imagen'],
             'servicio_tipo': servicio_tipo,
         }
         return render(request, 'templateCatalogo/catalogo3.html', data)
