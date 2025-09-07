@@ -97,3 +97,9 @@ a:hover {
 .navbar-dark .nav-link.active {
   background: rgba(255, 255, 255, 0.12);
 }
+
+img {
+  width: 150px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
