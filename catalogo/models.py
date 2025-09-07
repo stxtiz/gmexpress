@@ -49,37 +49,36 @@ catalogo_concesion = {
     5: {'nombre': 'Personal de mantención', 'imagen': 'mantencion.jpg'},
 }
 
-
+#Agregar imagenes a los menús
 menu_transportado = {
     1: {'nombre':'Pollo a la chilena con arroz y ensalada',
         'descripcion':'Plato casero clásico, nutritivo y balanceado.',
         'ingredientes':'Pollo al horno con especias, arroz blanco, ensalada de lechuga y tomate',
         'tiempo_entrega':'30 - 40 Minutos',
-        'condiciones_consumo':'Consumir caliente, mantener a una temperatura superior a 65°C hasta servir. No recomendado recalentar más de una vez.'},
-
+        'condiciones_consumo':'Consumir caliente, mantener a una temperatura superior a 65°C hasta servir. No recomendado recalentar más de una vez.','imagen':'pollo a la chilena.png'},
     2: {'nombre':'Lasagna de verduras gratinada',
         'descripcion':'Opción sin carne con variedad de vegetales frescos.',
         'ingredientes':'Berenjena, zapallo italiano, champiñones, espinaca, salsa bechamel, queso mozzarella',
         'tiempo_entrega':'35 - 45 Minutos',
-        'condiciones_consumo':'Mantener en envase térmico; consumir antes de 2 horas tras la entrega. Recalentar en horno o microondas si es necesario.'},
+        'condiciones_consumo':'Mantener en envase térmico; consumir antes de 2 horas tras la entrega. Recalentar en horno o microondas si es necesario.','imagen':'lasagna de verduras.png'},
 
     3: {'nombre':'Bowl de quinoa mediterráneo',
         'descripcion':'Plato ligero, 100% vegetal, ideal para energía y frescura.',
         'ingredientes':'Quinoa cocida, garbanzos, pepino, tomate cherry, aceitunas, palta, aderezo de limón y aceite de oliva',
         'tiempo_entrega':'25 - 35 Minutos',
-        'condiciones_consumo':'Mantener refrigerado si no se consume de inmediato; apto para consumirse frío o a temperatura ambiente.'},
+        'condiciones_consumo':'Mantener refrigerado si no se consume de inmediato; apto para consumirse frío o a temperatura ambiente.','imagen':'bowl de quinoa.png'},
 
     4: {'nombre':'Filete de pescado con ensalada fresca',
         'descripcion':'Preparación baja en calorías, rica en proteínas y omega-3.',
         'ingredientes':'Filete de merluza a la plancha, ensalada de rúcula con zanahoria y pepino, rodaja de limón',
         'tiempo_entrega':'25 - 30 Minutos',
-        'condiciones_consumo':'Servir inmediatamente tras la entrega o mantener en envase térmico; no dejar más de 1 hora sin refrigeración.'},
+        'condiciones_consumo':'Servir inmediatamente tras la entrega o mantener en envase térmico; no dejar más de 1 hora sin refrigeración.','imagen':'filete de pescado.png'},
 
     5: {'nombre':'Pastel de choclo tradicional',
         'descripcion':'Receta típica chilena, especial para el menú del día.',
         'ingredientes':'Pino de carne, huevo duro, aceitunas, pollo desmenuzado, masa de choclo molido gratinada',
         'tiempo_entrega':'40 - 50 Minutos',
-        'condiciones_consumo':'Mantener en envase térmico cerrado; consumir caliente, idealmente dentro de los 30 minutos posteriores a la entrega.'}
+        'condiciones_consumo':'Mantener en envase térmico cerrado; consumir caliente, idealmente dentro de los 30 minutos posteriores a la entrega.','imagen':'pastel de choclo.png'}
 }
 
 menu_coffe = {
