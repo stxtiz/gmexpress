@@ -10,10 +10,10 @@ catalogo1 = {
 }
 
 catalogo_transportado = {
-    1: {'nombre': 'Almuerzo tradicional', 'imagen': 'almuerzo.jpg'},
-    2: {'nombre': 'Vegetariano', 'imagen': 'vegetariano.jpg'},
-    3: {'nombre': 'Vegano', 'imagen': 'vegano.jpg'},
-    4: {'nombre': 'Hipocalórico', 'imagen': 'hipocalorico.jpg'},
+    1: {'nombre': 'Almuerzo tradicional', 'imagen': 'pollo a la chilena.png'},
+    2: {'nombre': 'Vegetariano', 'imagen': 'lasagna de verduras.png'},
+    3: {'nombre': 'Vegano', 'imagen': 'bowl de quinoa.png'},
+    4: {'nombre': 'Hipocalórico', 'imagen': 'filete de pescado.png'},
     5: {'nombre': 'Menú especial del día', 'imagen': 'especial.jpg'},
 }
 
