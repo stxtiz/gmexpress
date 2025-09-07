@@ -14,23 +14,23 @@ catalogo_transportado = {
     2: {'nombre': 'Vegetariano', 'imagen': 'lasagna de verduras.png'},
     3: {'nombre': 'Vegano', 'imagen': 'bowl de quinoa.png'},
     4: {'nombre': 'Hipocalórico', 'imagen': 'filete de pescado.png'},
-    5: {'nombre': 'Menú especial del día', 'imagen': 'especial.jpg'},
+    5: {'nombre': 'Menú especial del día', 'imagen': 'pastel de choclo.png'},
 }
 
 catalogo_coffee = {
-    1: {'nombre': 'Sándwiches', 'imagen': 'sandwiches.jpg'},
-    2: {'nombre': 'Jugos naturales', 'imagen': 'jugos.jpg'},
-    3: {'nombre': 'Repostería', 'imagen': 'reposteria.jpg'},
-    4: {'nombre': 'Colaciones dulces', 'imagen': 'colacion.jpg'},
-    5: {'nombre': 'Colaciones saladas', 'imagen': 'colacion2.jpg'},
+    1: {'nombre': 'Sándwiches', 'imagen': 'sandwich de pollo.jpg'},
+    2: {'nombre': 'Jugos naturales', 'imagen': 'jugo natural de naranja.png'},
+    3: {'nombre': 'Repostería', 'imagen': 'queque casero de zanahoria.png'},
+    4: {'nombre': 'Colaciones dulces', 'imagen': 'Barrita energética de avena.png'},
+    5: {'nombre': 'Colaciones saladas', 'imagen': 'empanada queso.jpg'},
 }
 
 catalogo_tradicional = {
-    1: {'nombre': 'Menú Ejecutivo', 'imagen': 'ejecutivo.jpg'},
+    1: {'nombre': 'Menú Ejecutivo', 'imagen': 'lomo saltado.png'},
     2: {'nombre': 'Menú Saludable', 'imagen': 'saludable.jpg'},
     3: {'nombre': 'Desayuno Completo', 'imagen': 'desayuno.jpg'},
-    4: {'nombre': 'Cena Ligera', 'imagen': 'cena.jpg'},
-    5: {'nombre': 'Menú Regional', 'imagen': 'regional.jpg'},
+    4: {'nombre': 'Cena Ligera', 'imagen': 'crema de zapallo.png'},
+    5: {'nombre': 'Menú Regional', 'imagen': 'cazuela de vacuno.png'},
 }
 
 catalogo_reposteria = {
