@@ -1,6 +1,7 @@
 main {
   min-height: 100vh;
   position: relative;
+  background-color: #def5e8;
 }
 img {
   width: auto;
@@ -20,7 +21,7 @@ img {
 }
 
 .bg-custom {
-  background-color: #1c2c57 !important;
+  background-color: #15406c !important;
 }
 
 body {
@@ -30,15 +31,15 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: "Segoe UI", Arial, sans-serif;
-  color: #161616;
+  color: #15406c;
   margin: 0;
   padding: 0;
 }
 
 #caja{
-  background-color: #3c8658b8;
+  background-color: #6fc89c;
   padding: 12px;
-  color: aliceblue;
+  color: #15406c;
 }
 
 
@@ -46,6 +47,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #286a81;
+  border: none;
+  color: #def5e8;
 }
 
 
@@ -53,11 +57,21 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background: transparent;
 }
 
 
 .row-cols-3 .card-body .btn {
   margin-top: auto;
+  background-color: #15406c;
+  color: #def5e8;
+  border: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.row-cols-3 .card-body .btn:hover {
+  background-color: #286a81;
+  color: #def5e8;
 }
 
 
@@ -68,21 +82,22 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 24, 36, 0.571);
+  background: rgba(5, 13, 9, 0.436);
   z-index: -1;
 }
 
 #colorTexto{
-  color: black;
+  color: #15406c;
   font-size:x-large;
 }
 
 #cajaTitulo{
-  background-color: #68ca5e;
+  background-color: #def5e8;
   width: 30%;
-  margin: 10px 0 10px 0;;
+  margin: 10px 0 10px 0;
   padding-top: auto;
   padding-bottom: auto;
   padding-left: 5px;
   border-radius: 8px;
+  color: #15406c;
 }
