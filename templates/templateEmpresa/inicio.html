@@ -34,18 +34,21 @@
   <body>
     <div class="container py-4">
       <section>
-        <h1 class="mb-5">Catalogo de Servicios</h1>
+          <div class="card-body text-center" id="cajaTitulo">
+              <h1 class="mb-5" id="colorTexto" >Catalogo de Servicios</h1>
+          </div>
+
         <div class="row row-cols-3 justify-content-center g-4">
           {% for id, dato in catalogo_servicios.items %}
           <div class="col">
-            <div class="card" style="width: 18rem">
+            <div class="card" style="width: 18rem" id="caja">
               <img
                 src="{% static 'images/' %}{{dato.imagen}}"
                 class="card-img-top"
                 alt="{{dato.nombre}}"
                 width="150"
               />
-              <div class="card-body">
+              <div class="card-body" id="caja">
                 <h5 class="card-title">{{dato.nombre}}</h5>
                 {% if dato.servicio_tipo %}
                 <a

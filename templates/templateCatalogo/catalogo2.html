@@ -37,11 +37,13 @@
   <body>
     <div class="container py-4">
       <section>
-        <h1 class="mb-5">{{titulo_servicio}}</h1>
+        <div class="card-body text-center" id="cajaTitulo">
+          <h1 class="mb-5" id="colorTexto">{{titulo_servicio}}</h1>
+        </div>
         <div class="row row-cols-3 justify-content-center g-4">
           {% for id, producto in catalogo_productos.items %}
           <div class="col">
-            <div class="card" style="width: 18rem">
+            <div class="card" id="caja" style="width: 18rem">
               <img
                 src="{% static 'images/' %}{{producto.imagen}}"
                 class="card-img-top"
