@@ -18,7 +18,7 @@ def info_empresa(request):
             {'nombre': "Instagram", 'url': "https://www.instagram.com/gmexpress_cl/?hl=es"},
         ]
     }
-    # Comentario: renderiza la plantilla y pasa el diccionario 'datos'
+    
     return render(request, 'templateEmpresa/info.html', datos)
 
 def inicio(request):
