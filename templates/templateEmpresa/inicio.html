@@ -23,20 +23,19 @@
             id="logo"
           />
         </a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'info_empresa' %}">Sobre Nosotros</a>
-          </li>
-        </ul>
+        <nav class="navbar-nav">
+          <a href=""></a>
+          <a class="nav-link" href="{% url 'info_empresa' %}">Sobre Nosotros</a>
+        </nav>
       </div>
     </nav>
   </header>
   <body>
     <div class="container py-4">
       <section>
-          <div class="card-body text-center" id="cajaTitulo">
-              <h1 class="mb-5" id="colorTexto" >Catalogo de Servicios</h1>
-          </div>
+        <div class="card-body text-center" id="cajaTitulo">
+          <h1 class="mb-5" id="colorTexto">Catalogo de Servicios</h1>
+        </div>
 
         <div class="row row-cols-3 justify-content-center g-4">
           {% for id, dato in catalogo_servicios.items %}
