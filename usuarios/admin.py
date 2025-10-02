@@ -2,18 +2,19 @@ from django.contrib import admin
 from .models import TipoUsuario, Usuario
 # Register your models here.
 class TipoUsuarioAdmin(admin.ModelAdmin):
-    list_display = ['id', 'descripcion', 'activo', 'fecha_creacion']
+    list_display = ['id', 'descripcion', 'estado', 'fecha_creacion']
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'nombre',
-        'apellido',
-        'email',
+        'paterno',
+        'materno',
+        'correo',
         'telefono',
         'fecha_nacimiento',
         'fecha_registro',
-        'activo',
+        'estado',
         'tipo_usuario',
         'nombre_completo'
     ]
