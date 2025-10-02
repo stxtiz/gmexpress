@@ -8,8 +8,12 @@ estado = (
     )
 
 tipo_venta = (
-    ('1', 'Producto'),
-    ('2', 'Servicio'),
-    ('3', 'Mixto')
+    ('P', 'Producto'),
+    ('S', 'Servicio'),
+    ('M', 'Mixto')
 )
 
+tipo_item = (
+    ('P', 'Producto'),
+    ('S', 'Servicio')
+)
