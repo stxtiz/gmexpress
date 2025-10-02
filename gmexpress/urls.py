@@ -4,7 +4,7 @@ from django.urls import path
 from empresa import views as vista
 from catalogo import views as catalogo_vista
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', vista.inicio, name='inicio'),
     
     #path catalogos    

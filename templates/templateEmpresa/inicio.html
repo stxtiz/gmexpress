@@ -24,7 +24,9 @@
           />
         </a>
         <nav class="navbar-nav">
-          <a class="nav-link" href="">Administrador - DJANGO</a>
+          <a class="nav-link" href="{% url 'admin:index' %}"
+            >Administrador - DJANGO</a
+          >
           <a class="nav-link" href="{% url 'info_empresa' %}">Sobre Nosotros</a>
         </nav>
       </div>

@@ -21,3 +21,5 @@ __pycache__/
 # Archivos de sistema operativo
 .DS_Store
 Thumbs.db
+
+README_MANTENEDORES.md

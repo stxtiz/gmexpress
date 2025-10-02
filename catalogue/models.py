@@ -1,15 +1,15 @@
 from django.db import models
 from django.utils import timezone
-
+from usuarios.models import Usuario
 # modelos de la base de datos: tabla producto - servicio - categoria
 class servicio(models.Model):
     idventa = models.AutoField(primary_key=True)
     fechaSolicitud = models.DateTimeField(default=timezone.now)
-    estado = models.IntegerField(max_length=50)
+    estado = models.IntegerField()
     cantidad = models.IntegerField()
     producto_idproducto = models.ForeignKey('catalogue.producto', models.DO_NOTHING, db_column='producto_idproducto')
     servicio_idservicio = models.ForeignKey('catalogue.servicio', models.DO_NOTHING, db_column='servicio_idservicio')
-    usuario_idusuario = models.ForeignKey('users.usuario', models.DO_NOTHING, db_column='usuario_idusuario')
+    usuario_idusuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     def __str__(self):
         return f"{self.idventa} - {self.fechaSolicitud} - {self.estado} - {self.cantidad} - {self.producto_idproducto} - {self.servicio_idservicio} - {self.usuario_idusuario}"
 
