@@ -6,10 +6,10 @@ from ventas.choices import estado, tipo_venta
 
 
 class DetalleVenta(models.Model):
-    descripcion = models.CharField(max_length=100, null=False)
-    cantidad_items = models.IntegerField(null=False)
-    monto_total = models.DecimalField(max_digits=10, decimal_places=2, null=False)
-    fecha_venta = models.DateTimeField(default=timezone.now)
+    descripcion = models.CharField(max_length=100, null=False, verbose_name="Descripción")
+    cantidad_items = models.PositiveIntegerField(null=False, verbose_name="Cantidad de Ítems")
+    monto_total = models.PositiveIntegerField(max_lenght=100, null=False, verbose_name="Monto Total")
+    fecha_venta = models.DateTimeField(default=timezone.now, verbose_name="Fecha de Venta")
 
     class Meta:
         db_table = "detalle_ventas"
@@ -21,10 +21,10 @@ class DetalleVenta(models.Model):
     
     
 class Venta(models.Model):
-    num_venta = models.CharField(max_length=45, unique=True, null=False)
-    estado = models.CharField(max_length=1, choices=estado, default='1')
-    tipo_venta = models.CharField(max_length=1, choices=tipo_venta, default='1')
-    detalleVenta = models.ForeignKey(DetalleVenta, on_delete=models.CASCADE, null=True)
+    num_venta = models.PositiveIntegerField(unique=True, null=False, verbose_name="Número de Venta")
+    estado = models.CharField(max_length=1, choices=estado, default='1', verbose_name="Estado")
+    tipo_venta = models.CharField(max_length=1, choices=tipo_venta, default='p', verbose_name="Tipo de Venta")
+    detalleVenta = models.ForeignKey(DetalleVenta, on_delete=models.CASCADE, null=True, verbose_name="Detalle de Venta")
     
     class Meta:
         db_table = "ventas"
