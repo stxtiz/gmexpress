@@ -11,7 +11,7 @@ class servicio(models.Model):
     servicio_idservicio = models.ForeignKey('catalogue.servicio', models.DO_NOTHING, db_column='servicio_idservicio')
     usuario_idusuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     def __str__(self):
-        return f"{self.idventa} - {self.fechaSolicitud} - {self.estado} - {self.cantidad} - {self.producto_idproducto} - {self.servicio_idservicio} - {self.usuario_idusuario}"
+        return f"{self.fechaSolicitud} - {self.estado} - {self.cantidad} - {self.producto_idproducto} - {self.servicio_idservicio} - {self.usuario_idusuario}"
 
     class Meta:
         db_table = 'servicio'
@@ -27,7 +27,7 @@ class producto(models.Model):
     imagen = models.CharField(max_length=255)
     categoria_idcategoria = models.ForeignKey('catalogue.categoria', models.DO_NOTHING, db_column='categoria_idcategoria')
     def __str__(self):
-        return f"{self.idproducto} - {self.nombre} - {self.descripcion} - {self.precio} - {self.stock} - {self.imagen} - {self.categoria_idcategoria}"
+        return f"{self.nombre} - {self.descripcion} - {self.precio} - {self.stock} - {self.imagen} - {self.categoria_idcategoria}"
 
     class Meta:
         db_table = 'producto'
@@ -36,10 +36,12 @@ class producto(models.Model):
 
 class categoria(models.Model):
     idcategoria = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, notnull=False)
+    estado = models.BooleanField(default=True)
+    descripcion = models.CharField(max_length=200, notnull=False)
 
     def __str__(self):
-        return f"{self.idcategoria} - {self.nombre}"
+        return f"{self.nombre} - {self.descripcion} - {self.estado}"
 
     class Meta:
         db_table = 'categoria'
