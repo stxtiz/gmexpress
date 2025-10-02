@@ -36,9 +36,9 @@ class producto(models.Model):
 
 class categoria(models.Model):
     idcategoria = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100, notnull=False)
+    nombre = models.CharField(max_length=100, null=False)
     estado = models.BooleanField(default=True)
-    descripcion = models.CharField(max_length=200, notnull=False)
+    descripcion = models.CharField(max_length=200, null=False)
 
     def __str__(self):
         return f"{self.nombre} - {self.descripcion} - {self.estado}"

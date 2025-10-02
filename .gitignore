@@ -13,7 +13,7 @@ __pycache__/
 *.log
 
 # Archivos de migraciones (opcional, si no quieres compartirlas)
-# */migrations/
+**/migrations/**
 
 # Archivos de configuración de VSCode (opcional)
 .vscode/

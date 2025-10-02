@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.validators import RegexValidator
 from usuarios.choices import estado
 
 # Create your models here.
@@ -19,13 +20,13 @@ class TipoUsuario(models.Model):
         
 class Usuario(models.Model):
     run = models.CharField(max_length=12, unique=True, null=False)
-    nombre = models.CharField(max_length=45, null=False)
-    paterno = models.CharField(max_length=45, null=False)
-    materno = models.CharField(max_length=45, null=False)
+    nombre = models.CharField(max_length=45, null=False, blank=False)
+    paterno = models.CharField(max_length=45, null=False, blank=False)
+    materno = models.CharField(max_length=45, null=False, blank=False)
     correo = models.EmailField(max_length=100, unique=True, null=False)
     contrasenia = models.CharField(max_length=255, validators=[RegexValidator(r'^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{9,}$', message="Debe tener al menos 9 caracteres, una mayúscula y un símbolo especial.")])
-    telefono = models.CharField(max_length=15, null=False)
-    fecha_nacimiento = models.DateField(null=False)
+    telefono = models.CharField(max_length=15, null=False, blank=False)
+    fecha_nacimiento = models.DateField(null=False, blank=False)
     fecha_registro = models.DateTimeField(default=timezone.now)
     estado = models.CharField(max_length=1,choices=estado,default='1')
     tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT)

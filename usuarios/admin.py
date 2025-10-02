@@ -7,6 +7,7 @@ class TipoUsuarioAdmin(admin.ModelAdmin):
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = [
         'id',
+        'run',
         'nombre',
         'paterno',
         'materno',
