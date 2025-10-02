@@ -8,8 +8,8 @@ from ventas.choices import estado, tipo_venta
 class DetalleVenta(models.Model):
     descripcion = models.CharField(max_length=100, null=False, verbose_name="Descripción")
     cantidad_items = models.PositiveIntegerField(null=False, verbose_name="Cantidad de Ítems")
-    monto_total = models.PositiveIntegerField(max_lenght=100, null=False, verbose_name="Monto Total")
-    fecha_venta = models.DateTimeField(default=timezone.now, verbose_name="Fecha de Venta")
+    monto_total = models.PositiveIntegerField(max_length=100, null=False, verbose_name="Monto Total")
+    fecha_venta = models.DateField(default=timezone.now, verbose_name="Fecha de Venta")
 
     class Meta:
         db_table = "detalle_ventas"
@@ -17,7 +17,7 @@ class DetalleVenta(models.Model):
         verbose_name_plural = "Detalles Ventas"
         
     def __str__(self):
-        return f" {self.cantidad_items} - {self.descripcion} - {self.fecha_venta} - {self.monto_total}"
+        return f" CANTIDAD DE ITEMS: {self.cantidad_items} FECHA: {self.fecha_venta} MONTO TOTAL: {self.monto_total}"
     
     
 class Venta(models.Model):

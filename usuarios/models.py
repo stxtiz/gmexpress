@@ -19,16 +19,16 @@ class TipoUsuario(models.Model):
         verbose_name_plural = "tipos Usuarios"
         
 class Usuario(models.Model):
-    run = models.CharField(max_length=12, unique=True, null=False)
-    nombre = models.CharField(max_length=45, null=False, blank=False)
-    paterno = models.CharField(max_length=45, null=False, blank=False)
-    materno = models.CharField(max_length=45, null=False, blank=False)
-    correo = models.EmailField(max_length=100, unique=True, null=False)
+    run = models.CharField(max_length=12, unique=True, null=False, verbose_name="RUT")
+    nombre = models.CharField(max_length=45, null=False, blank=False, verbose_name="Nombre")
+    paterno = models.CharField(max_length=45, null=False, blank=False, verbose_name="Apellido Paterno")
+    materno = models.CharField(max_length=45, null=False, blank=False, verbose_name="Apellido Materno")
+    correo = models.EmailField(max_length=100, unique=True, null=False, verbose_name="Correo Electrónico")
     contrasenia = models.CharField(max_length=255, validators=[RegexValidator(r'^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{9,}$', message="Debe tener al menos 9 caracteres, una mayúscula y un símbolo especial.")])
-    telefono = models.CharField(max_length=15, null=False, blank=False)
-    fecha_nacimiento = models.DateField(null=False, blank=False)
-    fecha_registro = models.DateTimeField(default=timezone.now)
-    estado = models.CharField(max_length=1,choices=estado,default='1')
+    telefono = models.CharField(max_length=15, null=False, blank=False, verbose_name="Teléfono")
+    fecha_nacimiento = models.DateField(null=False, blank=False, verbose_name="Fecha de Nacimiento")
+    fecha_registro = models.DateTimeField(default=timezone.now, verbose_name="Fecha de Registro")
+    estado = models.CharField(max_length=1,choices=estado,default='1', verbose_name="Estado")
     tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT)
     
     class Meta:
