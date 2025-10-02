@@ -32,4 +32,4 @@ class Venta(models.Model):
         verbose_name_plural = "Ventas"
         
     def __str__(self):
-        return f" {self.num_venta} - {self.estado} - {self.tipo_venta} "
+        return f" {self.num_venta} - {self.estado} - {self.tipo_venta} - {self.detalleVenta}"
