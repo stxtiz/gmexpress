@@ -38,6 +38,22 @@ ul li {
   font-size: 1.1rem;
 }
 
+/* Estilos para nav que antes estaban en ul */
+nav.navbar-nav {
+  background: transparent;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Estilos para enlaces dentro de nav.navbar-nav */
+nav.navbar-nav > a {
+  background: transparent;
+  margin-bottom: 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
 a {
   color: #588157;
   text-decoration: none;
@@ -73,21 +89,27 @@ a:hover {
   gap: 12px;
   margin: 0;
   padding: 8px 16px;
+  background: transparent;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav .nav-link,
+.navbar-nav > a {
   display: block;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
+  background: transparent;
+  margin: 0;
 }
 
-.navbar-dark .nav-link {
+.navbar-dark .nav-link,
+.navbar-dark .navbar-nav > a {
   color: #ffffff;
 }
 
 .navbar-dark .nav-link:hover,
-.navbar-dark .nav-link.active {
+.navbar-dark .nav-link.active,
+.navbar-dark .navbar-nav > a:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
