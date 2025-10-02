@@ -15,6 +15,15 @@ class productoAdmin(admin.ModelAdmin):
         '__str__'
     ]
 
+class categoriaAdmin(admin.ModelAdmin):
+    list_display = [
+        'idcategoria',
+        'nombre',
+        'descripcion',
+        'estado',
+        '__str__'
+    ]
 
 admin.site.register(producto, productoAdmin)
+admin.site.register(categoria, categoriaAdmin)
 
