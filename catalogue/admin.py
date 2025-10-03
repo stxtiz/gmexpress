@@ -23,7 +23,18 @@ class categoriaAdmin(admin.ModelAdmin):
         'estado',
         '__str__'
     ]
-
+    
+class servicioAdmin(admin.ModelAdmin):
+    list_display = [
+        'idventa',
+        'fechaSolicitud',
+        'estado',
+        'cantidad',
+        'producto_idproducto',
+        'servicio_idservicio',
+        'usuario_idusuario',
+        '__str__'
+    ]
 admin.site.register(producto, productoAdmin)
 admin.site.register(categoria, categoriaAdmin)
-
+admin.site.register(servicio, servicioAdmin)

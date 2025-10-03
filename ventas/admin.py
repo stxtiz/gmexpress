@@ -4,7 +4,7 @@ from .models import Venta, DetalleVenta
 
 
 class DetalleVentaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'descripcion', 'cantidad_items', 'monto_total', 'fecha_venta', '__str__']
+    list_display = ['id', 'descripcion', 'cantidad_items', 'monto_total', 'fecha_venta']
     
     
 class VentaAdmin(admin.ModelAdmin):
