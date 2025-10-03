@@ -17,7 +17,7 @@ class DetalleVenta(models.Model):
         verbose_name_plural = "Detalles Ventas"
         
     def __str__(self):
-        return f" ID: {self.id} CANTIDAD DE ITEMS: {self.cantidad_items} FECHA: {self.fecha_venta} MONTO TOTAL: {self.monto_total}"
+        return f" ID: {self.id} | CANTIDAD DE ITEMS: {self.cantidad_items} | FECHA: {self.fecha_venta} | MONTO TOTAL: {self.monto_total}"
     
     
 class Venta(models.Model):
@@ -31,5 +31,3 @@ class Venta(models.Model):
         verbose_name = "Venta"
         verbose_name_plural = "Ventas"
         
-    def __str__(self):
-        return f" {self.num_venta} - {self.estado} - {self.tipo_venta} - {self.detalleVenta}"

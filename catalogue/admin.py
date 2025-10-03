@@ -3,37 +3,36 @@ from django.contrib import admin
 from .models import producto, categoria, servicio
 # Register your models here.
 
+class categoriaAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'nombre',
+        'estado',
+        'descripcion',
+    ]
+    
+
+
+
+
 class productoAdmin(admin.ModelAdmin):
     list_display = [
-        'idproducto',
+        'id',
         'nombre',
         'descripcion',
         'precio',
         'stock',
         'imagen',
-        'categoria_idcategoria',
-        '__str__'
+        'categoria_id',
     ]
 
-class categoriaAdmin(admin.ModelAdmin):
-    list_display = [
-        'idcategoria',
-        'nombre',
-        'descripcion',
-        'estado',
-        '__str__'
-    ]
-    
+
 class servicioAdmin(admin.ModelAdmin):
     list_display = [
-        'idventa',
+        'id',
         'fechaSolicitud',
         'estado',
         'cantidad',
-        'producto_idproducto',
-        'servicio_idservicio',
-        'usuario_idusuario',
-        '__str__'
     ]
 admin.site.register(producto, productoAdmin)
 admin.site.register(categoria, categoriaAdmin)

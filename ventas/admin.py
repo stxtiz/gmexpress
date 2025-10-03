@@ -8,7 +8,7 @@ class DetalleVentaAdmin(admin.ModelAdmin):
     
     
 class VentaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'num_venta', 'estado', 'tipo_venta', 'detalleVenta', '__str__']
+    list_display = ['id', 'num_venta', 'estado', 'tipo_venta', 'detalleVenta']
     
     
 admin.site.register(DetalleVenta, DetalleVentaAdmin)

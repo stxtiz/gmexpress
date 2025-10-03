@@ -11,7 +11,7 @@ class TipoUsuario(models.Model):
     fecha_creacion = models.DateTimeField(default=timezone.now)
         
     def __str__(self):
-        return f"{self.descripcion}"
+        return f"CATEGORIA: {self.descripcion}"
     
     class Meta:
         db_table = 'tipo_usuario'
