@@ -31,3 +31,4 @@ class Venta(models.Model):
         verbose_name = "Venta"
         verbose_name_plural = "Ventas"
         
+#revertir ventas a detalle venta  y hacer calculo automatico del monto total y cantidad de items VALIDAR SI ESTA ACTIVO O NO
