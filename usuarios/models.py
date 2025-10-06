@@ -29,7 +29,7 @@ class Usuario(models.Model):
     fecha_nacimiento = models.DateField(null=False, blank=False, verbose_name="Fecha de Nacimiento")
     fecha_registro = models.DateTimeField(default=timezone.now, verbose_name="Fecha de Registro")
     estado = models.CharField(max_length=1,choices=estado,default='1', verbose_name="Estado")
-    tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT)
+    tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT, limit_choices_to={'estado': '1'})
     
     class Meta:
         db_table = 'usuario'

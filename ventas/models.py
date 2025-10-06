@@ -1,15 +1,32 @@
 from django.db import models
 from django.utils import timezone
 from ventas.choices import estado, tipo_venta
+from catalogue.models import Producto
+from usuarios.models import Usuario
 # Create your models here.
 
 
+class Venta(models.Model):
+    fecha_venta = models.DateField(default=timezone.now, verbose_name="Fecha de Venta")
+    estado = models.CharField(max_length=1, choices=estado, default='1', verbose_name="Estado")
+    tipo_venta = models.CharField(max_length=1, choices=tipo_venta, default='p', verbose_name="Tipo de Venta")
+    monto_total = models.PositiveIntegerField(null=False, verbose_name="Monto Total")
+    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT, limit_choices_to={'estado': '1'}, verbose_name="Usuario")
+    
+    class Meta:
+        db_table = "ventas"
+        verbose_name = "Venta"
+        verbose_name_plural = "Ventas"
+    
+    def __str__(self):
+        return f"VENTA {self.id} | FECHA: {self.fecha_venta} | TOTAL: {self.monto_total} | ESTADO: {self.estado}"
+
 
 class DetalleVenta(models.Model):
-    descripcion = models.CharField(max_length=100, null=False, verbose_name="Descripción")
-    cantidad_items = models.PositiveIntegerField(null=False, verbose_name="Cantidad de Ítems")
-    monto_total = models.PositiveIntegerField(max_length=100, null=False, verbose_name="Monto Total")
-    fecha_venta = models.DateField(default=timezone.now, verbose_name="Fecha de Venta")
+    venta = models.ForeignKey(Venta, on_delete=models.CASCADE, related_name='detalles', verbose_name="Venta")
+    producto = models.ForeignKey(Producto, on_delete=models.PROTECT, verbose_name="Producto", null=True, blank=True)
+    precio_unitario = models.PositiveIntegerField(null=False, verbose_name="Precio Unitario")
+    cantidad = models.PositiveIntegerField(null=False, verbose_name="Cantidad")
 
     class Meta:
         db_table = "detalle_ventas"
@@ -17,18 +34,13 @@ class DetalleVenta(models.Model):
         verbose_name_plural = "Detalles Ventas"
         
     def __str__(self):
-        return f" ID: {self.id} | CANTIDAD DE ITEMS: {self.cantidad_items} | FECHA: {self.fecha_venta} | MONTO TOTAL: {self.monto_total}"
+            return f"Venta #{self.venta.id} | Producto: {self.producto.nombre} | Cantidad: {self.cantidad} | Subtotal: {self.calcular_subtotal_producto()}"
+
+    def calcular_subtotal_producto(self):
+        self.subtotal = self.precio_unitario * self.cantidad
+        return self.subtotal
+
+
+
     
-    
-class Venta(models.Model):
-    num_venta = models.PositiveIntegerField(unique=True, null=False, verbose_name="Número de Venta")
-    estado = models.CharField(max_length=1, choices=estado, default='1', verbose_name="Estado")
-    tipo_venta = models.CharField(max_length=1, choices=tipo_venta, default='p', verbose_name="Tipo de Venta")
-    detalleVenta = models.ForeignKey(DetalleVenta, on_delete=models.CASCADE, null=True, verbose_name="Detalle de Venta")
-    
-    class Meta:
-        db_table = "ventas"
-        verbose_name = "Venta"
-        verbose_name_plural = "Ventas"
-        
-#revertir ventas a detalle venta  y hacer calculo automatico del monto total y cantidad de items VALIDAR SI ESTA ACTIVO O NO
+

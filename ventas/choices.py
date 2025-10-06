@@ -9,6 +9,4 @@ estado = (
 
 tipo_venta = (
     ('p', 'Producto'),
-    ('s', 'Servicio'),
-    ('m', 'Mixto')
 )
