@@ -3,6 +3,7 @@ from django.urls import path
 
 from empresa import views as vista
 from catalogo import views as catalogo_vista
+from catalogue import views
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', vista.inicio, name='inicio'),
@@ -16,4 +17,7 @@ urlpatterns = [
     
     #path nosotros
     path('nosotros/', vista.info_empresa, name='info_empresa'),
+    #path servicios
+    path('servicioAdd/', views.crear_servicio, name='crearServicio'),
+    path('servicios/', views.mostrar_servicios, name='mostrarServicios'),
 ]

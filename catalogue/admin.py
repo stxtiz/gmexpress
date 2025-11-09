@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import Producto, Categoria
+from .models import Producto, Categoria, Servicio
 # Register your models here.
 
 class CategoriaAdmin(admin.ModelAdmin):
@@ -26,5 +26,16 @@ class ProductoAdmin(admin.ModelAdmin):
         'categoria_id',
     ]
 
+class ServicioAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'nombre',
+        'descripcion',
+        'precio',
+        'estado'
+        
+    ]
+
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Servicio, ServicioAdmin)

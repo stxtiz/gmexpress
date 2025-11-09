@@ -30,3 +30,18 @@ class Producto(models.Model):
         db_table = 'producto'
         verbose_name ='Producto'
         verbose_name_plural = 'Productos'
+
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=200)
+    precio = models.PositiveIntegerField(null=False, verbose_name="Precio")
+    estado = models.CharField(max_length=1,choices=estado,default='1', verbose_name="Estado")
+    fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
+
+    def __str__(self):
+        return f"ID: {self.id} | NOMBRE: {self.nombre} | DESCRIPCIÓN: {self.descripcion} | PRECIO: {self.precio} | ESTADO: {self.estado} | FECHA DE CREACIÓN: {self.fecha_creacion}"
+
+    class Meta:
+        db_table = 'servicio'
+        verbose_name ='Servicio'
+        verbose_name_plural = 'Servicios'
