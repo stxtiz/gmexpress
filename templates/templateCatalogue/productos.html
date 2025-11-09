@@ -1,4 +1,4 @@
-{% extends "templateEmpresa/base.html" %}
+{% extends 'templateEmpresa/base.html' %}
 
 {% block contenido %}
 
@@ -9,42 +9,41 @@
                         <div class="h2">Listado de Productos</div>
                     </div>
                     <div class="col-3">
-                        <a href="{% url 'crear_producto' %}" class="btn btn-dark">Agregar Producto</a></div>
+                        <a href="{% url 'crear_producto' %}" class="btn btn-dark">Agregar Producto</a>
+                    </div>
                 </div>
-            </div>
 
-
-            <table class="table table-striped-columns">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">precio</th>
-                        <th scope="col">stock</th>
-                        <th scope="col">imagen</th>
-                        <th scope="col">categoria</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for producto in productos %}
-                      <tr>
-                        <th scope="row">{{forloop.counter}}</th>
-                        <td>{{producto.nombre}}</td>
-                        <td>{{producto.descripcion}}</td>
-                        <td>{{producto.precio}}</td>
-                        <td>{{producto.stock}}</td>
-                        <td>{{producto.imagen}}</td>
-                        <td>{{producto.categoria}}</td>
-                        <td>
-                            <a href="#" class="btn btn-warning">Modificar</a>
-                            <a href="#" class="btn btn-danger">Eliminar</a>   
-                        </td>
-                    </tr>
-                    {%endfor %}                  
-                  
-                </tbody>
+                <table class="table table-striped-columns">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">stock</th>
+                            <th scope="col">imagen</th>
+                            <th scope="col">categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for producto in productos %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.descripcion}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td>{{producto.stock}}</td>
+                            <td>{{producto.imagen}}</td>
+                            <td>{{producto.categoria}}</td>
+                            <td>
+                                <a href="#" class="btn btn-warning">Modificar</a>
+                                <a href="#" class="btn btn-danger">Eliminar</a>   
+                            </td>
+                        </tr>
+                        {% endfor %}        
+                    </tbody>
                 </table>
+            </div>
         </div>
-    </div>            
+
 {% endblock %}
