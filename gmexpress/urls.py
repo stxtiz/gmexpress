@@ -33,7 +33,11 @@ urlpatterns = [
     #path usuarios
     path('accounts/',include('django.contrib.auth.urls')),
     path('usuarioAdd/',vistas.crear_usuario, name='crearUsuarios'),
+    path('usuarioEdit/<int:usuario_id>/', vistas.cargar_editar_usuario, name='editarUsuario'),
+    path('usuarioEditado/<int:usuario_id>/', vistas.editar_usuario, name='usuarioEditado'),
+    path('usuarioDelete/<int:usuario_id>/', vistas.eliminar_usuario, name='eliminarUsuario'),
     path('usuarios/', vistas.listar_usuarios, name='listarUsuarios'),
+    
 
 
     #path productos
