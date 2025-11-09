@@ -22,4 +22,12 @@ urlpatterns = [
     path('productos/', views.productos, name='productos'),
 
     path('crear_producto/', views.crear_producto, name='crear_producto'),
+
+    path('mostrar_productos/', views.mostrar_productos, name='mostrar_productos'),
+
+    path('editar_producto/', views.editar_producto, name='editar_producto'),
+
+    path('eliminar_producto/', views.eliminar_producto, name='eliminar_producto'),
+    
+    
 ]
