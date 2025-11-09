@@ -14,7 +14,7 @@ def crear_producto(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(request, 'templateCatalogue/productos.html')
+            return redirect('templateCatalogue/productos.html')
     else:
         form = ProductoForm()
     return render(request, 'templateCatalogue/crear_producto.html', {'form': form})# no olvidar crear la plantilla crear_producto.html
