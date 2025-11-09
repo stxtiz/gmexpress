@@ -22,8 +22,8 @@ class ProductoAdmin(admin.ModelAdmin):
         'descripcion',
         'precio',
         'stock',
-        #'imagen',
-        'categoria_id',
+        'imagen',
+        'categoria',
     ]
 
 admin.site.register(Producto, ProductoAdmin)
