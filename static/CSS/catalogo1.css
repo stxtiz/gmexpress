@@ -16,6 +16,14 @@ img {
   height: 15%;
 }
 
+#logoLogin {
+  aspect-ratio: unset;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+}
+
 .navbar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
