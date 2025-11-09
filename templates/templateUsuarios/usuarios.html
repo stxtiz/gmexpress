@@ -30,7 +30,8 @@
                                     <th>Correo Electrónico</th>
                                     <th>Teléfono</th>
                                     <th>Tipo de Usuario</th>
-                                    <th>Acciones</th>
+                                    <th>Estado</th>
+                                    <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,12 @@
                                             {% endif %}
                                         {% endfor %}
                                     </td>
+                                    {% if usuario.estado == '1' %}
+                                            <td><span class="text-center label label-success">Activo</span></td>
+                                    {% else %}
+                                            <td><span class="text-center label label-danger">Inactivo</span></td>
+                                    {% endif %}
+
                                     <td>
                                         <a href="#" class="btn btn-warning btn-sm">Modificar</a>
                                         <a href="#" class="btn btn-danger btn-sm">Eliminar</a>

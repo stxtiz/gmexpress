@@ -11,10 +11,12 @@ def crear_usuario(request):
         form = UsuarioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('templateUsuarios/usuarios.html')
+            return redirect('listarUsuarios')
     else:
         form = UsuarioForm()
+        
     return render(request, 'templateUsuarios/usuarioAdd.html', {'form': form})
+
 
 def listar_usuarios(request):
     usuarios = Usuario.objects.all()

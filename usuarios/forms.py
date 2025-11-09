@@ -1,10 +1,9 @@
 from django import forms
-from usuarios.choices import tipo_usuario, estado
+from usuarios.choices import estado
 from usuarios.models import TipoUsuario, Usuario
 
 class TipoUsuarioForm(forms.ModelForm):
     descripcion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese Descripción'}))
-    tipo = forms.ChoiceField(choices=tipo_usuario, widget=forms.Select(attrs={'class': 'form-control'}))
     estado = forms.ChoiceField(choices=estado, widget=forms.Select(attrs={'class': 'form-control'}))
     
     class Meta:
@@ -20,6 +19,7 @@ class UsuarioForm(forms.ModelForm):
     contrasenia = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese Contraseña'}))
     telefono = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese Teléfono'}))
     fecha_nacimiento = forms.DateField(widget=forms.DateInput(attrs={'class': 'form-control','placeholder': 'Día/Mes/Año','type': 'date'}))
+    
     estado = forms.ChoiceField(
         choices=estado,
         widget=forms.Select(attrs={'class': 'form-control'})
