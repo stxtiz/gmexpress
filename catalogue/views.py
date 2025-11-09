@@ -14,7 +14,7 @@ def crear_producto(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(request, 'templateCatalogue/productos.html')
+            return redirect('mostrar_productos')
     else:
         form = ProductoForm()
     return render(request, 'templateCatalogue/crear_producto.html', {'form': form})# no olvidar crear la plantilla crear_producto.html
@@ -68,7 +68,10 @@ def crear_servicio(request):
         form = ServicioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/servicios/')
+            return redirect('mostrarServicios')
+        else:
+            # Si el formulario no es válido, mostrar errores
+            print("Errores en el formulario:", form.errors)
     else:
         form = ServicioForm()
     return render(request, 'templateCatalogue/servicioAdd.html', {'form': form})
@@ -88,10 +91,14 @@ def modificar_servicio(request, id):
         if form.is_valid():
             form.save()
             print("Servicio modificado correctamente.")
-            return redirect('servicios')
+            return redirect('mostrarServicios')
+        else:
+            # Si el formulario no es válido, mostrar errores en la misma página de edición
+            print("Errores en el formulario:", form.errors)
+            return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
     else:
         form = ServicioForm(instance=servicio)
-    return render(request, 'templateCatalogue/servicios.html', {'form': form})
+    return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
 
 #Eliminar Servicio
 def eliminar_servicio(request, id):
@@ -99,5 +106,5 @@ def eliminar_servicio(request, id):
     
     if request.method == 'POST':
         servicio.delete()
-        return redirect('/servicios/')
+        return redirect('mostrarServicios')
     return render(request, 'templateCatalogue/servicioEliminar.html', {'servicio': servicio})
