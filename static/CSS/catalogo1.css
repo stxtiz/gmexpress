@@ -109,3 +109,7 @@ body::before {
   border-radius: 8px;
   color: #15406c;
 }
+
+#tituloLogin{
+  text-align: center;
+}
