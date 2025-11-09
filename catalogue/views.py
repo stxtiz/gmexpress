@@ -88,7 +88,7 @@ def modificar_servicio(request, id):
         if form.is_valid():
             form.save()
             print("Servicio modificado correctamente.")
-            return redirect('/servicios/')
+            return redirect('servicios')
     else:
         form = ServicioForm(instance=servicio)
     return render(request, 'templateCatalogue/servicios.html', {'form': form})
