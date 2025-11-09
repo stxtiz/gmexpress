@@ -37,7 +37,7 @@ urlpatterns = [
 
 
     #path productos
-    path('mostrar_productos/', views.mostrar_productos, name='mostrar_productos'),
+    path('mostra_productos/', views.mostrar_productos, name='mostrar_productos'),
 
     path('editar_producto/', views.editar_producto, name='editar_producto'),
 
