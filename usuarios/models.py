@@ -1,12 +1,13 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import RegexValidator
-from usuarios.choices import estado
+from usuarios.choices import estado, tipo_usuario
 
 # Create your models here.
 
 class TipoUsuario(models.Model):
     descripcion = models.CharField(max_length=45)
+    tipo = models.CharField(max_length=1, choices=tipo_usuario, default='2', verbose_name="Tipo")
     estado = models.CharField(max_length=1, choices=estado, default='1')
     fecha_creacion = models.DateTimeField(default=timezone.now)
         

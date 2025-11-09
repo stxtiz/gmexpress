@@ -23,7 +23,7 @@ class ProductoAdmin(admin.ModelAdmin):
         'precio',
         'stock',
         'imagen',
-        'categoria_id',
+        'categoria',
     ]
 
 class ServicioAdmin(admin.ModelAdmin):

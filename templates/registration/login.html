@@ -1,0 +1,27 @@
+{% extends 'templateEmpresa/base.html' %}
+{% block menu %}{% endblock %}
+{% block contenido %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<div class="row mt-5">
+  <div class="card col-4 offset-4 shadow-lg">
+    <img src="{% static 'images/gm express.png' %}" alt="GM Express logo" class="card-img-top p-3" id="logoLogin" />
+    <div class="card-body">
+      <h5 id="tituloLogin" class="card-title text-primary">Inicio de Sesión</h5>
+      <hr>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="d-flex justify-content-center gap-2">
+          <a class="btn btn-secondary" href="{% url 'inicio' %}">Cancelar</a>
+          <input class="btn btn-dark" type="submit" value="Ingresar">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

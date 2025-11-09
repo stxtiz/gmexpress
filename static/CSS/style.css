@@ -38,14 +38,14 @@ ul li {
   font-size: 1.1rem;
 }
 
-/* Estilos para nav que antes estaban en ul */
+
 nav.navbar-nav {
   background: transparent;
   margin-bottom: 0;
   padding: 0;
 }
 
-/* Estilos para enlaces dentro de nav.navbar-nav */
+
 nav.navbar-nav > a {
   background: transparent;
   margin-bottom: 0;
@@ -117,4 +117,8 @@ img {
   width: 150px;
   aspect-ratio: 1/1;
   object-fit: cover;
+}
+
+.section-title {
+  color: #0d6efd; 
 }
