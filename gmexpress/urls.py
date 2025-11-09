@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from empresa import views as vista
 from catalogo import views as catalogo_vista
@@ -16,6 +16,11 @@ urlpatterns = [
     
     #path nosotros
     path('nosotros/', vista.info_empresa, name='info_empresa'),
-    
+
+
     path('accounts/',include('django.contrib.auth.urls')),
+    #path catalogo
+    path('productos/', views.productos, name='productos'),
+
+    path('crear_producto/', views.crear_producto, name='crear_producto'),
 ]
