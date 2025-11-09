@@ -46,3 +46,6 @@ def eliminar_producto(request, id):
     producto = Producto.objects.get(id=id)
     producto.delete()
     return redirect('mostrar_productos')
+
+
+#Categorias
