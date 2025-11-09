@@ -62,7 +62,7 @@ def mostrar_servicios(request):
     return render(request, 'templateCatalogue/servicios.html', data)
 
 
-# Crear SERVICIOS
+
 def crear_servicio(request):
     if request.method == 'POST':
         form = ServicioForm(request.POST)
