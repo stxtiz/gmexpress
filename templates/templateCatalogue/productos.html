@@ -1,6 +1,6 @@
 {% extends "templateEmpresa/base.html" %}
 
-{% block contentido %}
+{% block contenido %}
 
     <div class="row">
         <div class="col">
@@ -9,7 +9,7 @@
                         <div class="h2">Listado de Productos</div>
                     </div>
                     <div class="col-3">
-                        <a href="{% url crear_producto %}" class="btn btn-dark">Agregar Producto</a></div>
+                        <a href="{% url 'crear_producto' %}" class="btn btn-dark">Agregar Producto</a></div>
                 </div>
             </div>
 
@@ -41,12 +41,10 @@
                             <a href="#" class="btn btn-danger">Eliminar</a>   
                         </td>
                     </tr>
-                    {endfor %}                  
+                    {%endfor %}                  
                   
                 </tbody>
                 </table>
         </div>
-    </div>
-
-            
+    </div>            
 {% endblock %}
