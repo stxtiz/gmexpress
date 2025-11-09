@@ -23,7 +23,7 @@ urlpatterns = [
     path('servicios/', views.mostrar_servicios, name='mostrarServicios'),
 
 
-    path('accounts/',include('django.contrib.auth.urls')),
+
     #path catalogo
     path('productos/', views.productos, name='productos'),
 
@@ -31,10 +31,11 @@ urlpatterns = [
     
     
     #path usuarios
-    path('usuariosAdd/',vistas.crear_usuario, name='crearUsuarios'),
-     
-     
-     
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('usuarioAdd/',vistas.crear_usuario, name='crearUsuarios'),
+    path('usuarios/', vistas.listar_usuarios, name='listarUsuarios'),
+
+
     #path productos
     path('mostrar_productos/', views.mostrar_productos, name='mostrar_productos'),
 

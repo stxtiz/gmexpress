@@ -32,6 +32,9 @@ class Producto(models.Model):
         verbose_name ='Producto'
         verbose_name_plural = 'Productos'
 
+
+
+
 class Servicio(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=200)
