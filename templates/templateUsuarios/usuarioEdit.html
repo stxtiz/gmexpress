@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <h2 class="text-center pb-4">Mantenedor de Usuarios</h2>
 
-                <form method="POST">
+                <form method="POST" action="{% url 'usuarioEditado' usuario.id %}">
                     {% csrf_token %}
                     <div class="row">
                         {{ form.non_field_errors }}
@@ -59,7 +59,7 @@
 
                         <div class="col-3 mb-3">
                             <label for="id_fecha_nacimiento">Fecha de Nacimiento:</label>
-                            {{ form.fecha_nacimiento }}
+                            <input type="date" class="form-control" name="fecha_nacimiento" value ="{{ form.fecha_nacimiento.value|date:'Y-m-d' }}">
                             <div class="text-danger">{{ form.fecha_nacimiento.errors }}</div>
                         </div>
 
@@ -81,7 +81,7 @@
                             <a href="{% url 'listarUsuarios' %}" class="btn btn-dark">Ir al Inicio</a>
                         </div>
                         <div class="col-6 text-end">
-                            <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+                            <button type="submit" class="btn btn-primary">Modificar Usuario</button>
                         </div>
                     </div>
                 </form>

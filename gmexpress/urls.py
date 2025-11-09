@@ -25,7 +25,7 @@ urlpatterns = [
     path('modificarServicio/<int:id>',views.modificar_servicio, name='modificarServicio'),
     path('servicioEliminar/<int:id>',views.eliminar_servicio, name='eliminarServicio'),
 
-    path('accounts/',include('django.contrib.auth.urls')),
+
     #path catalogo
     path('productos/', views.productos, name='productos'),
 
@@ -33,10 +33,15 @@ urlpatterns = [
     
     
     #path usuarios
-    path('usuariosAdd/',vistas.crear_usuario, name='crearUsuarios'),
-     
-     
-     
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('usuarioAdd/',vistas.crear_usuario, name='crearUsuarios'),
+    path('usuarioEdit/<int:usuario_id>/', vistas.cargar_editar_usuario, name='editarUsuario'),
+    path('usuarioEditado/<int:usuario_id>/', vistas.editar_usuario, name='usuarioEditado'),
+    path('usuarioDelete/<int:usuario_id>/', vistas.eliminar_usuario, name='eliminarUsuario'),
+    path('usuarios/', vistas.listar_usuarios, name='listarUsuarios'),
+    
+
+
     #path productos
     path('mostrar_productos/', views.mostrar_productos, name='mostrar_productos'),
 
