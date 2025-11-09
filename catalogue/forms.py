@@ -2,6 +2,7 @@ from django import forms
 from catalogue.choices import estado
 from catalogue.models import Categoria, Producto, Servicio
 
+
 #Validaciones para el formulario de Servicios
 #validacion precio
 def clean_precio(self):
@@ -36,7 +37,7 @@ class ServicioForm(forms.ModelForm):
         fields = ['nombre', 'descripcion','precio', 'estado']
         
         
-        
+
 class ProductoForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Ingrese el nombre del producto'}))
     descripcion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Ingrese la descripción del producto'}))
