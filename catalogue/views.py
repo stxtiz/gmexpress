@@ -14,14 +14,14 @@ def crear_producto(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('templateCatalogue/productos.html')
+            return redirect('mostrar_productos')
     else:
         form = ProductoForm()
     return render(request, 'templateCatalogue/crear_producto.html', {'form': form})# no olvidar crear la plantilla crear_producto.html
 
 
 def mostrar_productos(request):
-    productos = Producto.objects.all(),
+    productos = Producto.objects.all()
     categoria = Categoria.objects.all()
 
     data={
