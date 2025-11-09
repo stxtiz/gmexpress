@@ -6,7 +6,7 @@ from catalogue.models import Categoria, Producto, Servicio
 #Validaciones para el formulario de Servicios
 #validacion precio
 def clean_precio(self):
-    precio = self.cleanned_data['precio']
+    precio = self.cleaned_data['precio']
     try:
         precio = int(precio)
     except ValueError:
@@ -16,13 +16,13 @@ def clean_precio(self):
     return precio
 #validacion nombre
 def clean_nombre(self):
-    nombre = self.cleanned_data['nombre']
+    nombre = self.cleaned_data['nombre']
     if nombre and not nombre.isalpha() and ' ' not in nombre:
         raise forms.ValidationError("El nombre solo debe contener letras y espacios.")
     return nombre
 #validacion descripcion
 def clean_descripcion(self):
-    descripcion = self.cleanned_data['descripcion']
+    descripcion = self.cleaned_data['descripcion']
     if descripcion and not descripcion.isalpha() and ' ' not in descripcion:
         raise forms.ValidationError("La descripción solo debe contener letras y espacios.")
 #Formulario para el modelo Servicio
