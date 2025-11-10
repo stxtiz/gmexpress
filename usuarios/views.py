@@ -34,6 +34,7 @@ def listar_usuarios(request):
 def cargar_editar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     form = UsuarioForm(instance=usuario)
+    form.fields.pop('contrasenia', None)
     
     return render(request, 'templateUsuarios/usuarioEdit.html', {'form': form, 'usuario': usuario})
 @permission_required('usuarios.change_usuario')
@@ -42,11 +43,13 @@ def editar_usuario(request, usuario_id):
     
     if request.method == 'POST':
         form = UsuarioForm(request.POST, instance=usuario)
+        form.fields.pop('contrasenia', None)
         if form.is_valid():
             form.save()
             return redirect('listarUsuarios')
     else:
         form = UsuarioForm(instance=usuario)
+        form.fields.pop('contrasenia', None)
         
     return render(request, 'templateUsuarios/usuarioEdit.html', {'form': form, 'usuario': usuario})
 
