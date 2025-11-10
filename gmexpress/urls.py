@@ -56,12 +56,8 @@ urlpatterns = [
     path('eliminar_producto/<int:id>/', views.eliminar_producto, name='eliminarProducto'),
     path('productos/', views.producto, name='productos'),
 
-
     
     
-    path('productos/', views.productos, name='productos'),
-
-    path('crear_producto/', views.crear_producto, name='crear_producto'),
 ]
 
 # Configuración para servir archivos media en desarrollo
