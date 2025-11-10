@@ -87,7 +87,7 @@ def modificar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     
     if request.method == 'POST':
-        form = ServicioForm(request.POST, instance=servicio)
+        form = ServicioForm(request.POST, request.FILES, instance=servicio)
         if form.is_valid():
             form.save()
             print("Servicio modificado correctamente.")

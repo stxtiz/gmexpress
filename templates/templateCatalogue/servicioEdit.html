@@ -1,5 +1,6 @@
 {% extends "templateEmpresa/base.html" %}
 {% block contenido %}
+{% load static %}
 
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -8,7 +9,7 @@
                 <div class="card-body">
                     <h2 class="text-center pb-4">Modificar Servicio</h2>
 
-                    <form method="POST" action="{% url 'modificarServicio' servicio.id %}">
+                    <form method="POST" action="{% url 'modificarServicio' servicio.id %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             {{ form.non_field_errors }}
@@ -36,7 +37,20 @@
                                 {{ form.estado }}
                                 <div class="text-danger">{{ form.estado.errors }}</div>
                             </div>
+
+                            
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                {% if servicio.imagen %}
+                                    <img src="{{ servicio.imagen.url }}" alt="Imagen del servicio" width="200" height="200" class="mx-auto my-auto d-block">
+                                {% else %}
+                                    <img src="{% static 'images/default.jpg' %}" alt="Imagen de un servicio" width="200" height="200" class="mx-auto my-auto d-block">
+                                {% endif %}
+                                {{ form.imagen.label_tag }}
+                                {{ form.imagen }}
+                                <div class="text-danger">{{ form.imagen.errors }}</div>
+                            </div>
                         </div>
+                        
 
                         <div class="row mt-3">
                             <div class="col-6 text-start">

@@ -22,3 +22,25 @@ body {
 .usuarios-page .usuarios-card table {
   text-align: left;
 }
+
+/* Estilos específicos para servicios-card */
+#servicios-card {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.usuarios-page .row {
+  max-width: 100%;
+}
+
+.usuarios-page {
+  max-width: 100%;
+  width: 100%;
+}
+
+.usuarios-page > .row > .col-12,
+.usuarios-page > .row > .col-lg-11 {
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+

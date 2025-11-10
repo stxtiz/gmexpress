@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="container usuarios-page py-5">
+<div class="container-fluid usuarios-page py-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-11">
-            <div class="card shadow-lg p-4 usuarios-card" style="min-height: 500px;">
+        <div class="col-12">
+            <div class="card shadow-lg p-4 usuarios-card" id="servicios-card" style="min-height: 500px;">
                 <div class="card-body">
                     <!-- Título y botón agregar -->
                     <div class="row mb-3 align-items-center">
@@ -53,7 +53,7 @@
                                     </td>
                                     <td>
                                         {% if servicio.imagen %}
-                                        <img src="{{ servicio.imagen.url }}" alt="Imagen de un servicio" width="50" height="auto">
+                                        <img src="{{ servicio.imagen.url }}" alt="Imagen de un servicio" width="50" height="50">
                                         {% endif %}
                                     </td>
                                     <td class="text-center">

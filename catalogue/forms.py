@@ -42,10 +42,11 @@ class ServicioForm(forms.ModelForm):
         max_value=2147483647  
     )
     estado = forms.CharField(widget=forms.Select(choices=estado, attrs={'class': 'form-select'}))
+    imagen = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control'}), required=False)
 
     class Meta:
         model = Servicio
-        fields = ['nombre', 'descripcion','precio', 'estado']
+        fields = ['nombre', 'descripcion','precio', 'estado', 'imagen']
     
     def clean_precio(self):
         precio = self.cleaned_data.get('precio')
