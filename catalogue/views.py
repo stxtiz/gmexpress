@@ -54,9 +54,12 @@ def modificar_producto(request,id):
 
 
 def eliminar_producto(request, id):
-    producto = Producto.objects.get(id=id)
-    producto.delete()
-    return redirect('mostrar_productos')
+    producto = get_object_or_404(Producto, id=id)
+    
+    if request.method == 'POST':
+        producto.delete()
+        return redirect('mostrarProducto')
+    return render(request, 'templateCatalogue/eliminarProducto.html', {'producto': producto})
 
 
 #--------------Categorias------------
