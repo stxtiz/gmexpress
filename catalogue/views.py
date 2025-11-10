@@ -5,11 +5,10 @@ from django.contrib.auth.decorators import permission_required
 
 
 # Create your views here.
-def producto(request):
-    return render(request, 'templateCatalogue/productos.html')
+
 
 #Productos
-
+@permission_required('catalogue.add_producto')
 def crear_producto(request):
     if request.method == 'POST':
         form = ProductoForm(request.POST, request.FILES)
@@ -20,7 +19,7 @@ def crear_producto(request):
         form = ProductoForm()
     return render(request, 'templateCatalogue/crear_producto.html', {'form': form})# no olvidar crear la plantilla crear_producto.html
 
-
+@permission_required('catalogue.view_producto')
 def mostrar_producto(request):
     producto = Producto.objects.all()
     categoria = Categoria.objects.all()
@@ -32,12 +31,17 @@ def mostrar_producto(request):
     }   
     return render(request, 'templateCatalogue/productos.html',data)
 
+@permission_required('catalogue.view_producto')
+def listar_producto(request):
+    return render(request, 'templateCatalogue/productos.html')
+
+@permission_required('catalogue.change_producto')
 def cargar_producto(request,id):
     producto = get_object_or_404(Producto,id=id)
     form = ProductoForm(instance=producto)
     return render(request,'templateCatalogue/productoEdit.html',{'form':form,'producto':producto})
 
-
+@permission_required('catalogue.change_producto')
 def modificar_producto(request,id):
     producto = get_object_or_404(Producto,id=id)
     
@@ -52,7 +56,7 @@ def modificar_producto(request,id):
         form = ProductoForm(instance=producto)
     return render(request, 'templateCatalogue/productoEdit.html', {'form': form,})
 
-
+@permission_required('catalogue.delete_producto')
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     
@@ -64,6 +68,7 @@ def eliminar_producto(request, id):
 
 #--------------Categorias------------
 # Crear Categoria
+@permission_required('catalogue.add_categoria')
 def crear_categoria(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)
@@ -75,6 +80,7 @@ def crear_categoria(request):
     return render(request, 'templateCatalogue/categoriaAdd.html', {'form': form})
 
 # Mostrar Categorias
+@permission_required('catalogue.view_categoria')
 def mostrar_categorias(request):
     categorias = Categoria.objects.all()
     data = {
@@ -83,12 +89,14 @@ def mostrar_categorias(request):
     return render(request, 'templateCatalogue/categorias.html', data)
 
 # Cargar Categoria para editar
+@permission_required('catalogue.change_categoria')
 def cargar_categoria(request, id):
     categoria = get_object_or_404(Categoria, id=id)
     form = CategoriaForm(instance=categoria)
     return render(request, 'templateCatalogue/categoriaEdit.html', {'form': form, 'categoria': categoria})
 
 # Editar Categoria
+@permission_required('catalogue.change_categoria')
 def modificar_categoria(request, id):
     categoria = get_object_or_404(Categoria, id=id)
     
@@ -105,6 +113,7 @@ def modificar_categoria(request, id):
         form = CategoriaForm(instance=categoria)
     return render(request, 'templateCatalogue/categoriaEdit.html', {'form': form, 'categoria': categoria})
 # Eliminar Categoria
+@permission_required('catalogue.delete_categoria')
 def eliminar_categoria(request, id):
     categoria = get_object_or_404(Categoria, id=id)
     
