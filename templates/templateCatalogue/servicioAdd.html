@@ -1,40 +1,56 @@
-{% extends 'templateEmpresa/base.html' %}
-
+{% extends "templateEmpresa/base.html" %}
 {% block contenido %}
 
-        <div class="row mt-5">
-            <div class="col">
-                <h2>Mantenedor de Servicios</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        {{ form.non_field_errors }}
-                        <div class="col-3 mb-3">
-                            {{ form.nombre.label_tag }} {{ form.nombre }}
-                            <div class="text-danger">{{ form.nombre.errors }}</div>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4">Mantenedor de Servicios</h2>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            {{ form.non_field_errors }}
+
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                {{ form.nombre.label_tag }}
+                                {{ form.nombre }}
+                                <div class="text-danger">{{ form.nombre.errors }}</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                {{ form.descripcion.label_tag }}
+                                {{ form.descripcion }}
+                                <div class="text-danger">{{ form.descripcion.errors }}</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                {{ form.precio.label_tag }}
+                                {{ form.precio }}
+                                <div class="text-danger">{{ form.precio.errors }}</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                {{ form.estado.label_tag }}
+                                {{ form.estado }}
+                                <div class="text-danger">{{ form.estado.errors }}</div>
+                            </div>
                         </div>
-                        <div class="col-3 mb-3">
-                            {{ form.descripcion.label_tag }} {{ form.descripcion }}
-                            <div class="text-danger">{{ form.descripcion.errors }}</div>
+
+                        <div class="row mt-3">
+                            <div class="col-6 text-start">
+                                <a href="{% url 'mostrarServicios' %}" class="btn btn-dark">Ir al Inicio</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button type="submit" class="btn btn-success">Guardar Servicio</button>
+                            </div>
                         </div>
-                        <div>
-                            {{ form.precio.label_tag }} {{ form.precio }}
-                            <div class="text-danger">{{ form.precio.errors }}</div>
-                        </div>
-                        <div class="col-3 mb-3">
-                            {{ form.estado.label_tag }} {{ form.estado }}
-                            <div class="text-danger">{{ form.estado.errors }}</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="{% url 'inicio' %}" class="btn btn-danger">Ir al inicio</a>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-success">Guardar Servicio</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>   
+        </div>
+    </div>
+</div>
+
 {% endblock %}
