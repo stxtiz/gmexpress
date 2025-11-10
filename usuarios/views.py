@@ -36,7 +36,7 @@ def cargar_editar_usuario(request, usuario_id):
     form = UsuarioForm(instance=usuario)
     
     return render(request, 'templateUsuarios/usuarioEdit.html', {'form': form, 'usuario': usuario})
-@permission_required('usuarios.add_usuario')
+@permission_required('usuarios.change_usuario')
 def editar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     
@@ -48,7 +48,7 @@ def editar_usuario(request, usuario_id):
     else:
         form = UsuarioForm(instance=usuario)
         
-    return render(request, 'templateUsuarios/usuarios.html', {'form': form})
+    return render(request, 'templateUsuarios/usuarioEdit.html', {'form': form, 'usuario': usuario})
 
 @permission_required('usuarios.delete_usuario')
 def eliminar_usuario(request, usuario_id):

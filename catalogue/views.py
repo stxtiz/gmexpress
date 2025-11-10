@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from catalogue.forms import ProductoForm, ServicioForm
 from catalogue.models import Producto, Categoria, Servicio
+from django.contrib.auth.decorators import permission_required
 
 
 # Create your views here.
@@ -53,6 +54,7 @@ def eliminar_producto(request, id):
 #-----------Modulo servicios------------
 
 #Mostrar servicios
+@permission_required('catalogue.view_servicio')
 def mostrar_servicios(request):
     servicios = Servicio.objects.all()
     
@@ -62,7 +64,7 @@ def mostrar_servicios(request):
     return render(request, 'templateCatalogue/servicios.html', data)
 
 
-
+@permission_required('catalogue.add_servicio')
 def crear_servicio(request):
     if request.method == 'POST':
         form = ServicioForm(request.POST, request.FILES)
@@ -77,12 +79,14 @@ def crear_servicio(request):
     return render(request, 'templateCatalogue/servicioAdd.html', {'form': form})
 
 # Cargamos el Servicio para luego modificarlo
+@permission_required('catalogue.change_servicio')
 def cargar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     form = ServicioForm(instance=servicio)
     return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
 
 # Editamos el Servicio
+@permission_required('catalogue.change_servicio')
 def modificar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     
@@ -101,6 +105,7 @@ def modificar_servicio(request, id):
     return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
 
 #Eliminar Servicio
+@permission_required('catalogue.delete_servicio')
 def eliminar_servicio(request, id):
     servicio = get_object_or_404(Servicio, id=id)
     
