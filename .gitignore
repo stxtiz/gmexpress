@@ -16,7 +16,10 @@ __pycache__/
 **/migrations/**
 
 # Archivos de medios subidos por usuarios
-media/
+# Permitir la estructura de carpetas pero ignorar todos los archivos
+media/**/*
+# Excepto los archivos default.jpg
+!media/**/default.jpg
 
 # Archivos de configuración de VSCode (opcional)
 .vscode/
