@@ -1,0 +1,45 @@
+{% extends 'templateEmpresa/base.html' %}
+
+{% block contenido %}
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-9">
+                    <div class="h2">Listado de Categorias</div>
+                </div>
+                <div>
+                    <a class="btn btn-success btn-sm" href="{% url 'crearCategoria' %}">Agregar Categoria</a>
+                </div>
+            </div>
+            <table class="table table-dark table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in categorias %}
+                    <tr>
+                        <td scope="row">{{ forloop.counter }}</td>
+                        <td>{{ categoria.nombre }}</td>
+                        {% if categoria.estado == '1' %}
+                            <td><span class="text-center label label-success">Activo</span></td>
+                        {% else %}
+                            <td><span class="text-center label label-danger">Inactivo</span></td>
+                        {% endif %}
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{% url 'cargarCategoria' categoria.id %}">Modificar</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'eliminarCategoria' categoria.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

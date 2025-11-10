@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', vista.inicio, name='inicio'),
     
-    #path catalogos    
+    #path catalogos
     path('catalogo/', catalogo_vista.catalogoServicios, name='catalogo'),
     path('catalogo/<str:servicio_tipo>/', catalogo_vista.catalogoProductos, name='catalogo_productos'),
     
@@ -28,10 +28,13 @@ urlpatterns = [
     path('servicioEliminar/<int:id>',views.eliminar_servicio, name='eliminarServicio'),
 
 
-    #path catalogo
-    path('productos/', views.productos, name='productos'),
-
-    path('crear_producto/', views.crear_producto, name='crear_producto'),
+    #path categorias
+    path('categoriaAdd/', views.crear_categoria, name='crearCategoria'),
+    path('categorias/', views.mostrar_categorias, name='mostrarCategorias'),
+    path('categoriaCargar/<int:id>',views.cargar_categoria, name='cargarCategoria'),
+    path('categoriaEdit/<int:id>',views.modificar_categoria, name='modificarCategoria'),
+    path('categoriaEliminar/<int:id>',views.eliminar_categoria, name='eliminarCategoria'),
+    
     
     
     #path usuarios
@@ -51,7 +54,9 @@ urlpatterns = [
 
     path('eliminar_producto/', views.eliminar_producto, name='eliminar_producto'),
     
-    
+    path('productos/', views.productos, name='productos'),
+
+    path('crear_producto/', views.crear_producto, name='crear_producto'),
 ]
 
 # Configuración para servir archivos media en desarrollo

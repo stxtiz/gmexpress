@@ -1,0 +1,32 @@
+{% extends 'templateEmpresa/base.html' %}
+
+{% block contenido %}
+
+        <div class="row mt-5">
+            <div class="col">
+                <h2>Modificar Categorias</h2>
+                <form method="post" active="{% url 'modificarCategoria' categoria.id %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        {{ form.non_field_errors }}
+                        <div class="col-3 mb-3">
+                            {{ form.nombre.label_tag }} {{ form.nombre }}
+                            <div class="text-danger">{{ form.nombre.errors }}</div>
+                        </div>
+                        <div class="col-3 mb-3">
+                            {{ form.estado.label_tag }} {{ form.estado }}
+                            <div class="text-danger">{{ form.estado.errors }}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'mostrarCategorias' %}" class="btn btn-danger">Cancelar</a>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-warning">Modificar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>   
+{% endblock %}
