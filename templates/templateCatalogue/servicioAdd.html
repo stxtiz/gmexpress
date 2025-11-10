@@ -1,4 +1,5 @@
 {% extends "templateEmpresa/base.html" %}
+{% load static %}
 {% block contenido %}
 
 <div class="container mt-5 mb-5">
@@ -8,7 +9,7 @@
                 <div class="card-body">
                     <h2 class="text-center pb-4">Mantenedor de Servicios</h2>
 
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             {{ form.non_field_errors }}
@@ -36,6 +37,11 @@
                                 {{ form.estado }}
                                 <div class="text-danger">{{ form.estado.errors }}</div>
                             </div>
+
+                            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                                <img src="{% static 'images/default.jpg' %}" alt="Imagen de un servicio" width="200" height="200" class="mx-auto my-auto d-block">
+                                <label for="foto">Imagen del Servicio: </label>
+                                <input type="file" name="foto" id="foto" class="form-control form-control-sm">
                         </div>
 
                         <div class="row mt-3">

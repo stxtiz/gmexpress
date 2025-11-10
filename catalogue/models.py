@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from catalogue.choices import estado
+import os
 
 # modelos de la base de datos: tabla producto - servicio - categoria
 class Categoria(models.Model):
@@ -41,6 +42,14 @@ class Servicio(models.Model):
     precio = models.PositiveIntegerField(null=False, verbose_name="Precio")
     estado = models.CharField(max_length=1,choices=estado,default='1', verbose_name="Estado")
     fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
+    
+    def generarNombreArchivo(instance, filename):
+        extension = os.path.splitext(filename)[1][1:]
+        ruta = 'servicios'
+        fecha = timezone.now().strftime('%d%m%Y_%H%M%S')
+        nombre_archivo = "{}.{}".format(fecha, extension)
+        return os.path.join(ruta, nombre_archivo)
+    imagen = models.ImageField(upload_to=generarNombreArchivo, default='servicios/default.jpg')
 
     def __str__(self):
         return f"ID: {self.id} | NOMBRE: {self.nombre} | DESCRIPCIÓN: {self.descripcion} | PRECIO: {self.precio} | ESTADO: {self.estado} | FECHA DE CREACIÓN: {self.fecha_creacion}"

@@ -65,7 +65,7 @@ def mostrar_servicios(request):
 
 def crear_servicio(request):
     if request.method == 'POST':
-        form = ServicioForm(request.POST)
+        form = ServicioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('mostrarServicios')
