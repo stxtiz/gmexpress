@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from catalogue.forms import ProductoForm, ServicioForm
 from catalogue.models import Producto, Categoria, Servicio
 
@@ -14,7 +14,7 @@ def crear_producto(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(request, 'templateCatalogue/productos.html')
+            return redirect('mostrar_productos')
     else:
         form = ProductoForm()
     return render(request, 'templateCatalogue/crear_producto.html', {'form': form})# no olvidar crear la plantilla crear_producto.html
@@ -50,8 +50,9 @@ def eliminar_producto(request, id):
 
 #Categorias
 
-#modulo servicios
+#-----------Modulo servicios------------
 
+#Mostrar servicios
 def mostrar_servicios(request):
     servicios = Servicio.objects.all()
     
@@ -67,8 +68,43 @@ def crear_servicio(request):
         form = ServicioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('templateCatalogue/servicios.html')
+            return redirect('mostrarServicios')
+        else:
+            # Si el formulario no es válido, mostrar errores
+            print("Errores en el formulario:", form.errors)
     else:
         form = ServicioForm()
     return render(request, 'templateCatalogue/servicioAdd.html', {'form': form})
 
+# Cargamos el Servicio para luego modificarlo
+def cargar_servicio(request, id):
+    servicio = get_object_or_404(Servicio, id=id)
+    form = ServicioForm(instance=servicio)
+    return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
+
+# Editamos el Servicio
+def modificar_servicio(request, id):
+    servicio = get_object_or_404(Servicio, id=id)
+    
+    if request.method == 'POST':
+        form = ServicioForm(request.POST, instance=servicio)
+        if form.is_valid():
+            form.save()
+            print("Servicio modificado correctamente.")
+            return redirect('mostrarServicios')
+        else:
+            # Si el formulario no es válido, mostrar errores en la misma página de edición
+            print("Errores en el formulario:", form.errors)
+            return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
+    else:
+        form = ServicioForm(instance=servicio)
+    return render(request, 'templateCatalogue/servicioEdit.html', {'form': form, 'servicio': servicio})
+
+#Eliminar Servicio
+def eliminar_servicio(request, id):
+    servicio = get_object_or_404(Servicio, id=id)
+    
+    if request.method == 'POST':
+        servicio.delete()
+        return redirect('mostrarServicios')
+    return render(request, 'templateCatalogue/servicioEliminar.html', {'servicio': servicio})

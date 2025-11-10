@@ -4,8 +4,8 @@
 
         <div class="row mt-5">
             <div class="col">
-                <h2>Mantenedor de Servicios</h2>
-                <form method="post">
+                <h2>Modificar Servicio</h2>
+                <form method="post" action="{% url 'modificarServicio' servicio.id %}">
                     {% csrf_token %}
                     <div class="row">
                         {{ form.non_field_errors }}
@@ -31,7 +31,7 @@
                             <a href="{% url 'inicio' %}" class="btn btn-danger">Ir al inicio</a>
                         </div>
                         <div class="col">
-                            <button type="submit" class="btn btn-success">Guardar Servicio</button>
+                            <button type="submit" class="btn btn-warning">Modificar</button>
                         </div>
                     </div>
                 </form>

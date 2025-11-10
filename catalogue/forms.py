@@ -36,12 +36,26 @@ def clean_descripcion(self):
 class ServicioForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el Nombre del servicio'}))
     descripcion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese Descripción del servicio'}))
-    precio = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el Precio del servicio'}))
+    precio = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el Precio del servicio'}),
+        min_value=0,
+        max_value=2147483647  
+    )
     estado = forms.CharField(widget=forms.Select(choices=estado, attrs={'class': 'form-select'}))
 
     class Meta:
         model = Servicio
         fields = ['nombre', 'descripcion','precio', 'estado']
+    
+    def clean_precio(self):
+        precio = self.cleaned_data.get('precio')
+        if precio is None:
+            raise forms.ValidationError("El precio es requerido.")
+        if precio < 0:
+            raise forms.ValidationError("El precio no puede ser negativo.")
+        if precio > 2147483647:
+            raise forms.ValidationError("El precio es demasiado grande. El máximo permitido es 2,147,483,647.")
+        return precio
         
 
 

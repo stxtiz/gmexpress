@@ -21,7 +21,9 @@ urlpatterns = [
     #path servicios
     path('servicioAdd/', views.crear_servicio, name='crearServicio'),
     path('servicios/', views.mostrar_servicios, name='mostrarServicios'),
-
+    path('servicioCargar/<int:id>',views.cargar_servicio, name='cargarServicio'),
+    path('modificarServicio/<int:id>',views.modificar_servicio, name='modificarServicio'),
+    path('servicioEliminar/<int:id>',views.eliminar_servicio, name='eliminarServicio'),
 
 
     #path catalogo
