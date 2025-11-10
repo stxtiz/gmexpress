@@ -6,7 +6,7 @@ Sistema de gestión empresarial desarrollado con Django para el manejo de catál
 
 GMExpress es una aplicación web diseñada para la gestión integral de operaciones comerciales. El sistema incluye módulos para:
 
-- Gestión de catálogos de productos
+- Gestión de catálogos de productos (catalogue)
 - Administración de empresas
 - Control de ventas
 - Gestión de usuarios
@@ -40,10 +40,15 @@ pip install -r requirements.txt
 
 ### 4. Configurar la base de datos
 
-Crear la base de datos en MySQL:
+Crear la base de datos en MySQL usando phpMyAdmin u otra herramienta de gestión:
 
 ```sql
 CREATE DATABASE gmexpress;
+```
+
+O crear el usuario de base de datos (si es necesario):
+
+```sql
 CREATE USER 'administrador'@'localhost' IDENTIFIED BY '12345';
 GRANT ALL PRIVILEGES ON gmexpress.* TO 'administrador'@'localhost';
 FLUSH PRIVILEGES;
@@ -58,11 +63,13 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Crear superusuario (opcional)
+### 6. Crear superusuario
 
 ```bash
 python manage.py createsuperuser
 ```
+
+Sigue las instrucciones para crear tu usuario administrador del panel de Django.
 
 ### 7. Cargar archivos estáticos
 
@@ -86,15 +93,21 @@ URL: `http://127.0.0.1:8000/admin/`
 
 ## Credenciales de Prueba
 
+### Panel de Administración Django
 **Usuario:** admin  
 **Contraseña:** 12345
+
+### Base de Datos MySQL
+**Usuario:** administrador  
+**Contraseña:** 12345  
+**Puerto:** 3308
 
 ## Estructura del Proyecto
 
 ```
 gmexpress/
-├── catalogo/          # Módulo de catálogos
-├── catalogue/         # Módulo de catálogo alternativo
+├── catalogo/          # Módulo mockup (no funcional)
+├── catalogue/         # Módulo principal de catálogos
 ├── empresa/           # Gestión de empresas
 ├── gmexpress/         # Configuración principal del proyecto
 ├── media/             # Archivos multimedia subidos
