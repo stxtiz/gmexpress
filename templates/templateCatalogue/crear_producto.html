@@ -1,70 +1,73 @@
-{% extends 'templateEmpresa/base.html' %}
-
+{% extends "templateEmpresa/base.html" %}
+{% load static %}
 {% block contenido %}
 
-    <div class="container">
-        <div class = "row mt-5">
-            <div class="col">
-                <h2>Mantenedor Productos</h2>
-                <form  method="post">
+
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4">Mantenedor de Productos</h2>
+
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
-                        {{form.non_field_errors}}
-                        <div class="col-3 mb-3">
-                            {{form.nombre.label_tag}}
-                            {{form.nombre}}
-                            {{form.nombre.errors}}
+                        {{ form.non_field_errors }}
 
+                        <div class="col-6 mb-3">
+                            {{ form.nombre.label_tag }}
+                            {{ form.nombre }}
+                            <div class="text-danger">{{ form.nombre.errors }}</div>
                         </div>
-                        <div class="col-3 mb-3">
-                            {{form.descripcion.label_tag}}
-                            {{form.descripcion}}
-                            {{form.descripcion.errors}}
 
+                        <div class="col-6 mb-3">
+                            {{ form.categoria.label_tag }}
+                            {{ form.categoria }}
+                            <div class="text-danger">{{ form.categoria.errors }}</div>
                         </div>
-                        <div class="col-3 mb-3">
-                            {{form.precio.label_tag}}
-                            {{form.precio}}
-                            {{form.precio.errors}}
 
+                        <div class="col-12 mb-3">
+                            {{ form.descripcion.label_tag }}
+                            {{ form.descripcion }}
+                            <div class="text-danger">{{ form.descripcion.errors }}</div>
                         </div>
-                        <div class="col-3 mb-3">
-                            {{form.stock.label_tag}}
-                            {{form.stock}}
-                            {{form.stock.errors}}
 
+                        <div class="col-4 mb-3">
+                            {{ form.precio.label_tag }}
+                            {{ form.precio }}
+                            <div class="text-danger">{{ form.precio.errors }}</div>
                         </div>
-                        <div>
-                            {{form.imagen.label_tag}}
-                            {{form.imagen}}
-                            {{form.imagen.errors}}
-                        </div>
-                       
-                        <div class="col-3 mb-3">
-                            {{form.categoria.label_tag}}
-                            {{form.categoria}}
-                            {{form.categoria.errors}}
 
+                        <div class="col-4 mb-3">
+                            {{ form.stock.label_tag }}
+                            {{ form.stock }}
+                            <div class="text-danger">{{ form.stock.errors }}</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3 mb-3">
+                            <img src="{% static 'images/default.jpg' %}" alt="Imagen de un producto" width="200" height="200" class="mx-auto my-auto d-block">
+                            {{ form.imagen.label_tag }}
+                            {{ form.imagen }}
+                            <div class="text-danger">{{ form.imagen.errors }}</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <a class="btn btn-dark" href="{% url 'inicio' %}">Ir a inicio</a>
 
+                    <div class="row mt-3">
+                        <div class="col-6 text-start">
+                            <a href="{% url 'inicio' %}" class="btn btn-dark">Ir al Inicio</a>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-success" type="submit">Guardar</button>
-
+                        <div class="col-6 text-end">
+                            <button type="submit" class="btn btn-primary">Agregar Producto</button>
                         </div>
-
                     </div>
-
-                </form>             
+                </form>
+                </div>
             </div>
-
         </div>
-
     </div>
+</div>
 
 {% endblock %}
 

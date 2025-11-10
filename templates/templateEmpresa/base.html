@@ -86,6 +86,25 @@
                 </ul>
               </li>
               {% endif %}
+              {% if perms.catalogue.view_producto %}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="serviceMenuDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Administrar Productos
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="serviceMenuDropdown">
+                  <li><a class="dropdown-item" href="{% url 'crearProducto' %}">Crear Producto</a></li>
+                  <li><a class="dropdown-item" href="{% url 'mostrarProducto' %}">Listar Productos</a></li>
+                </ul>
+              </li>
+              {% endif %}
+
               <li class="nav-item d-flex align-items-center">
                 <form method="post" action="{% url 'logout' %}" class="d-inline">
                   {% csrf_token %}

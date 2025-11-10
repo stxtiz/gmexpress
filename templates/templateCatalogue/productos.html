@@ -1,49 +1,78 @@
-{% extends 'templateEmpresa/base.html' %}
+{% extends "templateEmpresa/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/usuarios.css' %}" />
+{% endblock %}
 
 {% block contenido %}
-
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col-9">
-                        <div class="h2">Listado de Productos</div>
+<div class="container-fluid usuarios-page py-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-lg p-4 usuarios-card" id="productos-card" style="min-height: 500px;">
+                <div class="card-body">
+                    <!-- Título y botón agregar -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-12 col-md-9 text-center text-md-start">
+                            <h2 class="text-center">Lista de Productos</h2>
+                        </div>
+                        <div class="col-12 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                            <a href="{% url 'crearProducto' %}" class="btn btn-success">Agregar Producto</a>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        <a href="{% url 'crearProducto' %}" class="btn btn-dark">Agregar Producto</a>
+
+                    <!-- Tabla de productos -->
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Categoría</th>
+                                    <th>Imagen</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for producto in producto %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ producto.nombre }}</td>
+                                    <td>{{ producto.descripcion }}</td>
+                                    <td>${{ producto.precio }}</td>
+                                    <td>{{ producto.stock }}</td>
+                                    <td>{{ producto.categoria }}</td>
+                                    <td>
+                                        {% if producto.imagen %}
+                                        <img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" width="50" height="50">
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{% url 'cargarProducto' producto.id %}" class="btn btn-warning btn-sm">Modificar</a>
+                                        <a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="8" class="text-center">No hay productos registrados.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Botón volver al inicio -->
+                    <div class="row mt-3">
+                        <div class="col text-center text-md-start">
+                            <a href="{% url 'inicio' %}" class="btn btn-dark">Ir al Inicio</a>
+                        </div>
                     </div>
                 </div>
-
-                <table class="table table-striped-columns">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">precio</th>
-                            <th scope="col">stock</th>
-                            <th scope="col">imagen</th>
-                            <th scope="col">categoria</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for producto in producto %}
-                        <tr>
-                            <th scope="row">{{forloop.counter}}</th>
-                            <td>{{producto.nombre}}</td>
-                            <td>{{producto.descripcion}}</td>
-                            <td>{{producto.precio}}</td>
-                            <td>{{producto.stock}}</td>
-                            <td>{{producto.imagen}}</td>
-                            <td>{{producto.categoria}}</td>
-                            <td>
-                                <a href="{% url 'cargarProducto' producto.id %}" class="btn btn-warning">Modificar</a>
-                                <a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger">Eliminar</a>   
-                            </td>
-                        </tr>
-                        {% endfor %}        
-                    </tbody>
-                </table>
             </div>
         </div>
-
+    </div>
+</div>
 {% endblock %}
