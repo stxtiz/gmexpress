@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from catalogue.forms import ProductoForm, ServicioForm
+from catalogue.forms import ProductoForm, ServicioForm, CategoriaForm
 from catalogue.models import Producto, Categoria, Servicio
 
 
@@ -48,7 +48,56 @@ def eliminar_producto(request, id):
     return redirect('mostrar_productos')
 
 
-#Categorias
+#--------------Categorias------------
+# Crear Categoria
+def crear_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mostrarCategorias')
+    else:
+        form = CategoriaForm()
+    return render(request, 'templateCatalogue/categoriaAdd.html', {'form': form})
+
+# Mostrar Categorias
+def mostrar_categorias(request):
+    categorias = Categoria.objects.all()
+    data = {
+        'categorias': categorias
+    }
+    return render(request, 'templateCatalogue/categorias.html', data)
+
+# Cargar Categoria para editar
+def cargar_categoria(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    form = CategoriaForm(instance=categoria)
+    return render(request, 'templateCatalogue/categoriaEdit.html', {'form': form, 'categoria': categoria})
+
+# Editar Categoria
+def modificar_categoria(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST, instance=categoria)
+        if form.is_valid():
+            form.save()
+            return redirect('mostrarCategorias')
+        else:
+            # Si el formulario no es válido, mostrar errores en la misma página de edición
+            print("Errores en el formulario:", form.errors)
+            return render(request, 'templateCatalogue/categoriaEdit.html', {'form': form, 'categoria': categoria})
+    else:
+        form = CategoriaForm(instance=categoria)
+    return render(request, 'templateCatalogue/categoriaEdit.html', {'form': form, 'categoria': categoria})
+# Eliminar Categoria
+def eliminar_categoria(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    
+    if request.method == 'POST':
+        categoria.delete()
+        return redirect('mostrarCategorias')
+    return render(request, 'templateCatalogue/categoriaEliminar.html', {'categoria': categoria})
 
 #-----------Modulo servicios------------
 
@@ -90,7 +139,6 @@ def modificar_servicio(request, id):
         form = ServicioForm(request.POST, instance=servicio)
         if form.is_valid():
             form.save()
-            print("Servicio modificado correctamente.")
             return redirect('mostrarServicios')
         else:
             # Si el formulario no es válido, mostrar errores en la misma página de edición

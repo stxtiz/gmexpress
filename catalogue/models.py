@@ -6,10 +6,10 @@ from catalogue.choices import estado
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100, null=False)
     estado = models.CharField(max_length=1,choices=estado,default='1', verbose_name="Estado")
-    descripcion = models.CharField(max_length=200, null=False)
+
 
     def __str__(self):
-        return f"CATEGORÍA: {self.nombre}"
+        return f"{self.nombre}"
 
     class Meta:
         db_table = 'categoria'

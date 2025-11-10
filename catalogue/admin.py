@@ -8,7 +8,6 @@ class CategoriaAdmin(admin.ModelAdmin):
         'id',
         'nombre',
         'estado',
-        'descripcion',
     ]
     
 

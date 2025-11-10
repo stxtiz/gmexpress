@@ -87,6 +87,27 @@ class ServicioForm(forms.ModelForm):
                 raise forms.ValidationError("La descripción solo debe contener letras, espacios y tildes.")
         
         return descripcion
+
+#------------------Formulario para el modelo Categoria----------------------------------
+class CategoriaForm(forms.ModelForm):
+    nombre = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Ingrese el nombre de la categoría'}))
+    estado = forms.CharField(widget=forms.Select(choices=estado, attrs={'class': 'form-select'}))
+
+    class Meta:
+        model = Categoria
+        fields = '__all__'
+    
+    def clean_nombre(self):
+        nombre = self.cleaned_data.get('nombre')
+        # Patrón de expresión regular para permitir solo letras (mayúsculas y minúsculas), espacios y tildes.
+        pattern = re.compile(r'^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$')
+
+        if nombre:
+            if not pattern.fullmatch(nombre):
+                raise forms.ValidationError("El nombre solo debe contener letras, espacios y tildes.")
+        
+        return nombre
+        
         
 
 

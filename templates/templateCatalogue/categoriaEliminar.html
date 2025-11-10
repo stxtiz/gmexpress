@@ -1,0 +1,25 @@
+{% extends 'templateEmpresa/base.html' %}
+
+{% block contenido %}
+
+    <div class="row">
+        <div class="col-10">
+            <h3>Confirmar Eliminación de la Categoria</h3>
+            <div class='alert alert-danger' role='alert'>
+                ¿Estás seguro que desea eliminar la Categoria "{{ categoria.nombre }}"?
+
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <a href="{% url 'mostrarCategorias' %}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>     
+{% endblock %}
