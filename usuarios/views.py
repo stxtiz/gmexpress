@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import permission_required
 
 
 
-
+@permission_required('usuarios.add_usuario')
 def crear_usuario(request):
     if request.method == 'POST':
         form = UsuarioForm(request.POST)
@@ -18,7 +18,7 @@ def crear_usuario(request):
         
     return render(request, 'templateUsuarios/usuarioAdd.html', {'form': form})
 
-
+@permission_required('usuarios.view_usuario')
 def listar_usuarios(request):
     usuarios = Usuario.objects.all()
     tipos = TipoUsuario.objects.all()
@@ -30,12 +30,13 @@ def listar_usuarios(request):
     
     return render(request, 'templateUsuarios/usuarios.html', data)
 
+@permission_required('usuarios.change_usuario')
 def cargar_editar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     form = UsuarioForm(instance=usuario)
     
     return render(request, 'templateUsuarios/usuarioEdit.html', {'form': form, 'usuario': usuario})
-
+@permission_required('usuarios.add_usuario')
 def editar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     
@@ -49,6 +50,7 @@ def editar_usuario(request, usuario_id):
         
     return render(request, 'templateUsuarios/usuarios.html', {'form': form})
 
+@permission_required('usuarios.delete_usuario')
 def eliminar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
     if request.method == 'POST':

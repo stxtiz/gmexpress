@@ -10,10 +10,9 @@ img {
 }
 
 #logo {
-  aspect-ratio: unset;
-  object-fit: unset;
-  width: 15%;
-  height: 15%;
+  width: 200px;
+  height: 60px;
+  object-fit: contain;
 }
 
 #logoLogin {
@@ -26,10 +25,46 @@ img {
 
 .navbar {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-nav .nav-item form {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .btn-link.nav-link {
+  text-decoration: none;
+}
+
+.navbar .btn-link.nav-link:hover,
+.navbar .btn-link.nav-link:focus {
+  color: #d8f3ea;
+  text-decoration: none;
 }
 
 .bg-custom {
   background-color: #15406c !important;
+}
+
+/* Estilos para el dropdown */
+.navbar .dropdown-menu {
+  z-index: 1050;
+  background-color: #286a81;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .dropdown-item {
+  color: #def5e8;
+  transition: background-color 0.2s;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: #15406c;
+  color: #def5e8;
 }
 
 body {
