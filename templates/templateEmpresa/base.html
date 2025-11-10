@@ -63,6 +63,8 @@
                   Administrar Usuarios
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuDropdown">
+                  <li><a class="dropdown-item" href="{% url 'crearTipoUsuario' %}">Crear Tipos de Usuarios</a></li>
+                  <li><a class="dropdown-item" href="{% url 'listarTipoUsuarios' %}">Listar Tipos de Usuarios</a></li>
                   <li><a class="dropdown-item" href="{% url 'crearUsuarios' %}">Crear Usuario</a></li>
                   <li><a class="dropdown-item" href="{% url 'listarUsuarios' %}">Listar Usuarios</a></li>
                 </ul>

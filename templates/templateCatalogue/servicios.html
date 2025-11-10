@@ -46,9 +46,9 @@
                                     <td>{{ servicio.fecha_creacion|date:"d/m/Y H:i" }}</td>
                                     <td>
                                         {% if servicio.estado == '1' %}
-                                            <span class="label label-success">Activo</span>
+                                            <span class="badge bg-success">Activo</span>
                                         {% else %}
-                                            <span class="label label-danger">Inactivo</span>
+                                            <span class="badge bg-danger">Inactivo</span>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -63,7 +63,7 @@
                                 </tr>
                                 {% empty %}
                                 <tr>
-                                    <td colspan="7" class="text-center">No hay servicios registrados.</td>
+                                    <td colspan="8" class="text-center">No hay servicios registrados.</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

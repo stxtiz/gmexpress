@@ -1,32 +1,46 @@
-{% extends 'templateEmpresa/base.html' %}
+{% extends "templateEmpresa/base.html" %}
+{% load static %}
 
 {% block contenido %}
 
-        <div class="row mt-5">
-            <div class="col">
-                <h2>Modificar Categorias</h2>
-                <form method="post" action="{% url 'modificarCategoria' categoria.id %}">
-                    {% csrf_token %}
-                    <div class="row">
-                        {{ form.non_field_errors }}
-                        <div class="col-3 mb-3">
-                            {{ form.nombre.label_tag }} {{ form.nombre }}
-                            <div class="text-danger">{{ form.nombre.errors }}</div>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4">Modificar Categoría</h2>
+
+                    <form method="POST" action="{% url 'modificarCategoria' categoria.id %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            {{ form.non_field_errors }}
+
+                            <div class="col-12 col-md-6 mb-3">
+                                {{ form.nombre.label_tag }}
+                                {{ form.nombre }}
+                                <div class="text-danger">{{ form.nombre.errors }}</div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3">
+                                {{ form.estado.label_tag }}
+                                {{ form.estado }}
+                                <div class="text-danger">{{ form.estado.errors }}</div>
+                            </div>
                         </div>
-                        <div class="col-3 mb-3">
-                            {{ form.estado.label_tag }} {{ form.estado }}
-                            <div class="text-danger">{{ form.estado.errors }}</div>
+
+                        <div class="row mt-3">
+                            <div class="col-6 text-start">
+                                <a href="{% url 'mostrarCategorias' %}" class="btn btn-dark">Volver</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button type="submit" class="btn btn-warning">Modificar Categoría</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="{% url 'mostrarCategorias' %}" class="btn btn-danger">Cancelar</a>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-warning">Modificar</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>   
+        </div>
+    </div>
+</div>
+
 {% endblock %}
