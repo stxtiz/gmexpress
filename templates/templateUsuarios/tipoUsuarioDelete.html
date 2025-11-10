@@ -8,31 +8,24 @@
         <div class="col-12 col-lg-6">
             <div class="card shadow-lg p-4">
                 <div class="card-body">
-                    <h2 class="text-center pb-4 text-danger">Eliminar Servicio</h2>
+                    <h2 class="text-center pb-4 text-danger">Eliminar Tipo de Usuario</h2>
                     
                     <div class="alert alert-warning" role="alert">
                         <h5 class="alert-heading">¡Atención!</h5>
-                        <p>¿Está seguro que desea eliminar el siguiente servicio?</p>
+                        <p>¿Está seguro que desea eliminar el siguiente tipo de usuario?</p>
                     </div>
 
                     <div class="card mb-4">
                         <div class="card-body">
-                            <p><strong>Nombre:</strong> {{ servicio.nombre }}</p>
-                            <p><strong>Descripción:</strong> {{ servicio.descripcion }}</p>
-                            <p><strong>Precio:</strong> ${{ servicio.precio }}</p>
-                            <p><strong>Fecha de Creación:</strong> {{ servicio.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                            <p><strong>Descripción:</strong> {{ tipo.descripcion }}</p>
                             <p><strong>Estado:</strong> 
-                                {% if servicio.estado == '1' %}
+                                {% if tipo.estado == '1' %}
                                     <span class="badge bg-success">Activo</span>
                                 {% else %}
                                     <span class="badge bg-danger">Inactivo</span>
                                 {% endif %}
                             </p>
-                            {% if servicio.imagen %}
-                            <p><strong>Imagen:</strong><br>
-                                <img src="{{ servicio.imagen.url }}" alt="Imagen del servicio" width="150" height="150" class="mt-2">
-                            </p>
-                            {% endif %}
+                            <p><strong>Fecha de Creación:</strong> {{ tipo.fecha_creacion|date:"d/m/Y H:i" }}</p>
                         </div>
                     </div>
 
@@ -40,7 +33,7 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-6 text-start">
-                                <a href="{% url 'mostrarServicios' %}" class="btn btn-secondary">Cancelar</a>
+                                <a href="{% url 'listarTipoUsuarios' %}" class="btn btn-secondary">Cancelar</a>
                             </div>
                             <div class="col-6 text-end">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>

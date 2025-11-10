@@ -1,28 +1,52 @@
 {% extends "templateEmpresa/base.html" %}
+{% load static %}
 
 {% block contenido %}
 
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4 text-danger">Eliminar Usuario</h2>
+                    
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">¡Atención!</h5>
+                        <p>¿Está seguro que desea eliminar el siguiente usuario?</p>
+                    </div>
 
-<div class="row">
-    <div class="col-10 offset-1">
-        <h3>Eliminar Usuario</h3>
-        <div class="alert alert-danger h5">
-            ¿Está seguro que desea eliminar al usuario <strong>{{ usuario.nombre }} {{ usuario.paterno }} {{ usuario.materno }}</strong>?
-        </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p><strong>Nombre Completo:</strong> {{ usuario.nombre }} {{ usuario.paterno }} {{ usuario.materno }}</p>
+                            <p><strong>RUT:</strong> {{ usuario.run }}</p>
+                            <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+                            <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+                            <p><strong>Tipo de Usuario:</strong> {{ usuario.tipo_usuario }}</p>
+                            <p><strong>Estado:</strong> 
+                                {% if usuario.estado == '1' %}
+                                    <span class="badge bg-success">Activo</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactivo</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
 
-        <form method= "POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    <a href="{% url 'listarUsuarios' %}" class="btn btn-warning">Cancelar</a>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6 text-start">
+                                <a href="{% url 'listarUsuarios' %}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
-
 
 {% endblock %}

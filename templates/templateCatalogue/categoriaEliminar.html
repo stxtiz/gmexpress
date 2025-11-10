@@ -1,25 +1,48 @@
-{% extends 'templateEmpresa/base.html' %}
+{% extends "templateEmpresa/base.html" %}
+{% load static %}
 
 {% block contenido %}
 
-    <div class="row">
-        <div class="col-10">
-            <h3>Confirmar Eliminación de la Categoria</h3>
-            <div class='alert alert-danger' role='alert'>
-                ¿Estás seguro que desea eliminar la Categoria "{{ categoria.nombre }}"?
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4 text-danger">Eliminar Categoría</h2>
+                    
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">¡Atención!</h5>
+                        <p>¿Está seguro que desea eliminar la siguiente categoría?</p>
+                    </div>
 
-            </div>
-            <form method="post">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col">
-                        <a href="{% url 'mostrarCategorias' %}" class="btn btn-secondary">Cancelar</a>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p><strong>Nombre:</strong> {{ categoria.nombre }}</p>
+                            <p><strong>Estado:</strong> 
+                                {% if categoria.estado == '1' %}
+                                    <span class="badge bg-success">Activo</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactivo</span>
+                                {% endif %}
+                            </p>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
-                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6 text-start">
+                                <a href="{% url 'mostrarCategorias' %}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>     
+    </div>
+</div>
+
 {% endblock %}

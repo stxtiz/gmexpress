@@ -61,3 +61,53 @@ def eliminar_usuario(request, usuario_id):
         return redirect('listarUsuarios')
 
     return render(request, 'templateUsuarios/usuarioDelete.html', {'usuario': usuario})
+
+def crear_tipo_usuario(request):
+    if request.method == 'POST':
+        form = TipoUsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listarTipoUsuarios')
+        else:
+            # Si el formulario no es válido, mostrar errores
+            print("Errores en el formulario:", form.errors)
+    else:
+        form = TipoUsuarioForm()
+        
+    return render(request, 'templateUsuarios/tipoUsuarioAdd.html', {'form': form})
+
+def listar_tipo_usuarios(request):
+    tipos = TipoUsuario.objects.all()
+    
+    data = {
+        'tipos': tipos
+    }
+    return render(request, 'templateUsuarios/tipoUsuarios.html', data)
+
+
+def cargar_editar_tipo_usuario(request, tipo_id):
+    tipo = get_object_or_404(TipoUsuario, id=tipo_id)
+    form = TipoUsuarioForm(instance=tipo)
+
+    return render(request, 'templateUsuarios/tipoUsuarioEdit.html', {'form': form, 'tipo': tipo})
+
+def editar_tipo_usuario(request, tipo_id):
+    tipo = get_object_or_404(TipoUsuario, id=tipo_id)
+    
+    if request.method == 'POST':
+        form = TipoUsuarioForm(request.POST, instance=tipo)
+        if form.is_valid():
+            form.save()
+            return redirect('listarTipoUsuarios')
+    else:
+        form = TipoUsuarioForm(instance=tipo)
+        
+    return render(request, 'templateUsuarios/tipoUsuarioEdit.html', {'form': form, 'tipo': tipo})
+
+def eliminar_tipo_usuario(request, tipo_id):
+    tipo = get_object_or_404(TipoUsuario, id=tipo_id)
+    if request.method == 'POST':
+        tipo.delete()
+        return redirect('listarTipoUsuarios')
+
+    return render(request, 'templateUsuarios/tipoUsuarioDelete.html', {'tipo': tipo})

@@ -13,7 +13,20 @@ class TipoUsuarioForm(forms.ModelForm):
     
     class Meta:
         model = TipoUsuario
-        fields = '__all__'
+        fields = ['descripcion', 'estado']
+    
+    def clean_descripcion(self):
+        descripcion = self.cleaned_data.get('descripcion')
+        if not descripcion:
+            raise forms.ValidationError("La descripción es requerida.")
+        
+        # Patrón de expresión regular para permitir solo letras, números, espacios y tildes.
+        pattern = re.compile(r'^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s]+$')
+        
+        if not pattern.fullmatch(descripcion):
+            raise forms.ValidationError("La descripción solo debe contener letras, números, espacios y tildes.")
+        
+        return descripcion
 
 class UsuarioForm(forms.ModelForm):
     run = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese RUT'}))

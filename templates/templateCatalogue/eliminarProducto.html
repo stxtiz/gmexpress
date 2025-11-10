@@ -1,25 +1,49 @@
-{% extends 'templateEmpresa/base.html' %}
+{% extends "templateEmpresa/base.html" %}
+{% load static %}
 
+{% block contenido %}
 
-{% block contenido %}   
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h2 class="text-center pb-4 text-danger">Eliminar Producto</h2>
+                    
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">¡Atención!</h5>
+                        <p>¿Está seguro que desea eliminar el siguiente producto?</p>
+                    </div>
 
-<div class="arrow">
-    <div class="col-10">
-        <h3>Confirmar eliminación del producto</h3>
-        <div class="alert">
-            ¿Está seguro que desea eliminar el producto "{{producto.nombre}}"?
-        </div>
-        <form method="post">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col">
-                    <a href="{% url 'productos' %}" class="btn">Cancelar</a>
-                </div>
-                <div class="col">
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p><strong>Nombre:</strong> {{ producto.nombre }}</p>
+                            <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+                            <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+                            <p><strong>Stock:</strong> {{ producto.stock }}</p>
+                            <p><strong>Categoría:</strong> {{ producto.categoria }}</p>
+                            {% if producto.imagen %}
+                            <p><strong>Imagen:</strong><br>
+                                <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="150" height="150" class="mt-2">
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-6 text-start">
+                                <a href="{% url 'mostrarProducto' %}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 

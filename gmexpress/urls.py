@@ -44,9 +44,14 @@ urlpatterns = [
     path('usuarioEditado/<int:usuario_id>/', vistas.editar_usuario, name='usuarioEditado'),
     path('usuarioDelete/<int:usuario_id>/', vistas.eliminar_usuario, name='eliminarUsuario'),
     path('usuarios/', vistas.listar_usuarios, name='listarUsuarios'),
+    #path tipo  de usuario
+    path('tipousuarioAdd/', vistas.crear_tipo_usuario, name='crearTipoUsuario'),
+    path('tipousuarios/', vistas.listar_tipo_usuarios, name='listarTipoUsuarios'),
+    path('tipousuarioEdit/<int:tipo_id>/', vistas.cargar_editar_tipo_usuario, name='editarTipoUsuario'),
+    path('tipousuarioEditado/<int:tipo_id>/', vistas.editar_tipo_usuario, name='tipoUsuarioEditado'),
+    path('tipousuarioDelete/<int:tipo_id>/', vistas.eliminar_tipo_usuario, name='eliminarTipoUsuario'),
     
-
-
+    
     #path productos
     path('mostrar_productos/', views.mostrar_producto, name='mostrarProducto'), 
 
