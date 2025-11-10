@@ -48,11 +48,16 @@ urlpatterns = [
 
 
     #path productos
-    path('mostrar_productos/', views.mostrar_productos, name='mostrar_productos'),
+    path('mostrar_productos/', views.mostrar_producto, name='mostrarProducto'), 
 
-    path('editar_producto/', views.editar_producto, name='editar_producto'),
+    path('crear_producto/', views.crear_producto, name='crearProducto'),
+    path('cargar_producto/<int:id>/', views.cargar_producto, name='cargarProducto'),
+    path('modificar_producto/<int:id>/', views.modificar_producto, name='modificarProducto'),
+    path('eliminar_producto/<int:id>/', views.eliminar_producto, name='eliminarProducto'),
+    path('productos/', views.producto, name='productos'),
 
-    path('eliminar_producto/', views.eliminar_producto, name='eliminar_producto'),
+
+    
     
     path('productos/', views.productos, name='productos'),
 

@@ -7,29 +7,7 @@ import re  # Importa el módulo de expresiones regulares
 #Validaciones 
 
 #validacion precio
-def clean_precio(self):
-    precio = self.cleaned_data['precio']
-    try:
-        precio = int(precio)
-    except ValueError:
-        raise forms.ValidationError("El precio debe ser un número entero.")
-    if precio < 0:
-        raise forms.ValidationError("El precio no puede ser negativo.")
-    return precio
 
-#validacion nombre
-def clean_nombre(self):
-    nombre = self.cleaned_data['nombre']
-    if nombre and not nombre.isalpha() and ' ' not in nombre:
-        raise forms.ValidationError("El nombre solo debe contener letras y espacios.")
-    return nombre
-
-
-#validacion descripcion
-def clean_descripcion(self):
-    descripcion = self.cleaned_data['descripcion']
-    if descripcion and not descripcion.isalpha() and ' ' not in descripcion:
-        raise forms.ValidationError("La descripción solo debe contener letras y espacios.")
     
     
     
@@ -130,3 +108,46 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = '__all__'
+    
+    def clean_nombre(self):
+        nombre = self.cleaned_data.get('nombre')
+        # Patrón de expresión regular para permitir solo letras (mayúsculas y minúsculas), espacios y tildes.
+        pattern = re.compile(r'^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$')
+
+        if nombre:
+            if not pattern.fullmatch(nombre):
+                raise forms.ValidationError("El nombre solo debe contener letras, espacios y tildes.")
+        
+        return nombre
+    
+    def clean_precio(self):
+        precio = self.cleaned_data['precio']
+        try:
+            precio = int(precio)
+        except ValueError:
+            raise forms.ValidationError("El precio debe ser un número entero.")
+        if precio < 0:
+            raise forms.ValidationError("El precio no puede ser negativo.")        
+        return precio
+    
+    def clean_stock(self):
+        stock = self.cleaned_data['stock']
+        try:
+            stock = int(stock)
+        except ValueError:
+            raise forms.ValidationError("El stock de producto debe ser un número entero.")
+        if stock < 0:
+            raise forms.ValidationError("El stock de producto no puede ser negativo.")
+        return stock
+    
+    def clean_descripcion(self):
+        descripcion = self.cleaned_data['descripcion']
+        pattern = re.compile(r'^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s.,;:!?()-]+$')
+        if descripcion:
+            if not pattern.fullmatch(descripcion):
+                raise forms.ValidationError("La descripción contiene caracteres no permitidos.")
+        return descripcion
+
+    
+    
+    

@@ -1,0 +1,26 @@
+{% extends 'templateEmpresa/base.html' %}
+
+
+{% block contenido %}   
+
+<div class="arrow">
+    <div class="col-10">
+        <h3>Confirmar eliminación del producto</h3>
+        <div class="alert">
+            ¿Está seguro que desea eliminar el producto "{{producto.nombre}}"?
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'productos' %}" class="btn">Cancelar</a>
+                </div>
+                <div class="col">
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

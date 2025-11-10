@@ -5,8 +5,8 @@
     <div class="container">
         <div class = "row mt-5">
             <div class="col">
-                <h2>Mantenedor Productos</h2>
-                <form  method="post">
+                <h2>Modificar Productos</h2>
+                <form  method="post" action="{% url 'modificarProducto' producto.id %}">
                     {% csrf_token %}
                     <div class="row">
                         {{form.non_field_errors}}
@@ -53,7 +53,7 @@
 
                         </div>
                         <div class="col">
-                            <button class="btn btn-success" type="submit">Guardar</button>
+                            <button class="btn btn-warning" type="submit">Modificar</button>
 
                         </div>
 
