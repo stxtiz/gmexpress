@@ -98,12 +98,11 @@ class ProductoForm(forms.ModelForm):
     precio = forms.DecimalField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder': 'Ingrese el precio del producto'}))
     stock = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control','placeholder': 'Ingrese el stock del producto'}))
 
-    imagen = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class': 'form-control'}),required=False)# despues cambiar 
-    #no c si el producto debe llevar estado ya que en la base  en los models no lo tiene
+    imagen = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control'}),required=False)# despues cambiar 
     categoria = forms.ModelChoiceField(
-        queryset=Categoria.objects.all(),        
+        queryset=Categoria.objects.filter(estado='1'),        
         empty_label="Seleccione una categoría",
-        widget=forms.Select(attrs={'class': 'form-control'}),required=False# cambiar 
+        widget=forms.Select(attrs={'class': 'form-control'})
     )
     class Meta:
         model = Producto

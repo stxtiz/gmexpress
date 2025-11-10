@@ -40,9 +40,12 @@ def cargar_producto(request,id):
 
 def modificar_producto(request,id):
     producto = get_object_or_404(Producto,id=id)
+    
     if request.method == 'POST':
         form = ProductoForm(request.POST, request.FILES, instance=producto)
         if form.is_valid():
+            if 'imagen' in request.FILES:
+                producto.imagen = request.FILES['imagen']
             form.save()   
         return redirect('mostrarProducto')
     else:
