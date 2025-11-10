@@ -99,8 +99,11 @@
                   Administrar Productos
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="serviceMenuDropdown">
+                  <li><a class="dropdown-item" href="{% url 'crearCategoria' %}">Crear Categorías</a></li>
+                  <li><a class="dropdown-item" href="{% url 'mostrarCategorias' %}">Listar Categorías</a></li>
                   <li><a class="dropdown-item" href="{% url 'crearProducto' %}">Crear Producto</a></li>
                   <li><a class="dropdown-item" href="{% url 'mostrarProducto' %}">Listar Productos</a></li>
+
                 </ul>
               </li>
               {% endif %}

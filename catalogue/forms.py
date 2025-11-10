@@ -106,7 +106,7 @@ class ProductoForm(forms.ModelForm):
     )
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ['nombre', 'descripcion', 'precio', 'stock', 'imagen', 'categoria']
     
     def clean_nombre(self):
         nombre = self.cleaned_data.get('nombre')
@@ -120,27 +120,31 @@ class ProductoForm(forms.ModelForm):
         return nombre
     
     def clean_precio(self):
-        precio = self.cleaned_data['precio']
+        precio = self.cleaned_data.get('precio')
+        if precio is None:
+            raise forms.ValidationError("El precio es requerido.")
         try:
             precio = int(precio)
-        except ValueError:
+        except (ValueError, TypeError):
             raise forms.ValidationError("El precio debe ser un número entero.")
         if precio < 0:
             raise forms.ValidationError("El precio no puede ser negativo.")        
         return precio
     
     def clean_stock(self):
-        stock = self.cleaned_data['stock']
+        stock = self.cleaned_data.get('stock')
+        if stock is None:
+            raise forms.ValidationError("El stock es requerido.")
         try:
             stock = int(stock)
-        except ValueError:
+        except (ValueError, TypeError):
             raise forms.ValidationError("El stock de producto debe ser un número entero.")
         if stock < 0:
             raise forms.ValidationError("El stock de producto no puede ser negativo.")
         return stock
     
     def clean_descripcion(self):
-        descripcion = self.cleaned_data['descripcion']
+        descripcion = self.cleaned_data.get('descripcion')
         pattern = re.compile(r'^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s.,;:!?()-]+$')
         if descripcion:
             if not pattern.fullmatch(descripcion):
